@@ -66,14 +66,12 @@ const BlogPost = () => {
               Guru Prasanth
             </Link>
             <div className="flex items-center gap-4">
-              <Link to="/blog" className="focus-visible:outline-none">
-                <Button 
-                  variant="outline" 
-                  className="bg-transparent border-border text-foreground hover:bg-secondary hover:text-foreground hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:border-primary transition-all [&:focus-visible]:!text-primary [&:focus-visible_svg]:!text-primary [&:focus-visible_span]:!text-primary"
-                >
-                  <ArrowLeft className="w-4 h-4 mr-2" />
-                  <span>Back to Blog</span>
-                </Button>
+              <Link 
+                to="/blog" 
+                className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all h-9 px-4 py-2 bg-transparent border border-border text-foreground hover:bg-secondary hover:text-foreground hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:text-primary focus-visible:border-primary [&:focus-visible_svg]:text-primary shadow-sm"
+              >
+                <ArrowLeft className="w-4 h-4" />
+                Back to Blog
               </Link>
               <Button
                 variant="outline"

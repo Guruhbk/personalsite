@@ -29,12 +29,15 @@ const BlogPost = () => {
       <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
         <nav className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <Link to="/" className="text-xl font-bold hover:text-primary transition-colors">
+            <Link to="/" className="text-xl font-bold hover:text-primary focus:text-primary focus:outline-none transition-colors">
               Guru Prasanth
             </Link>
             <div className="flex items-center gap-4">
               <Link to="/blog">
-                <Button variant="outline" className="border-border hover:bg-secondary transition-colors">
+                <Button 
+                  variant="outline" 
+                  className="border-border hover:bg-secondary hover:border-primary focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background transition-all"
+                >
                   <ArrowLeft className="w-4 h-4 mr-2" />
                   Back to Blog
                 </Button>
@@ -43,7 +46,7 @@ const BlogPost = () => {
                 variant="outline"
                 size="icon"
                 onClick={toggleTheme}
-                className="border-border hover:bg-secondary transition-colors"
+                className="border-border hover:bg-secondary hover:border-primary focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background transition-all"
               >
                 {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
               </Button>

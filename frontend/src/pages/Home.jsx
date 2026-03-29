@@ -29,20 +29,21 @@ const Home = () => {
       <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
         <nav className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <a href="#home" className="text-xl font-bold hover:text-primary transition-colors">
+            <a href="#home" className="text-xl font-bold hover:text-primary focus:text-primary focus:outline-none transition-colors">
               Guru Prasanth
             </a>
-            <div className="flex items-center gap-8">
-              <div className="hidden md:flex items-center gap-8">
-                <a href="#experience" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Experience</a>
-                <a href="#skills" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Skills</a>
-                <Link to="/blog" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Blog</Link>
-              </div>
+            <div className="flex items-center gap-6">
+              <Link 
+                to="/blog" 
+                className="text-base font-semibold text-foreground hover:text-primary focus:text-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background rounded-md px-3 py-2 transition-all"
+              >
+                Blog
+              </Link>
               <Button
                 variant="outline"
                 size="icon"
                 onClick={toggleTheme}
-                className="border-border hover:bg-secondary transition-colors"
+                className="border-border hover:bg-secondary hover:border-primary focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background transition-all"
               >
                 {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
               </Button>
@@ -78,7 +79,7 @@ const Home = () => {
               <div className="flex flex-wrap gap-4 pt-4">
                 <Button 
                   onClick={handleDownloadResume}
-                  className="bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+                  className="bg-primary text-primary-foreground hover:bg-primary/90 focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background transition-all"
                 >
                   <Download className="w-4 h-4 mr-2" />
                   Download Resume
@@ -89,7 +90,7 @@ const Home = () => {
                   href="https://www.linkedin.com/in/guru-prasanth-2003" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="p-3 bg-secondary border border-border rounded-lg hover:border-primary hover:bg-primary/10 transition-colors"
+                  className="p-3 bg-secondary border border-border rounded-lg hover:border-primary hover:bg-primary/10 focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background focus:outline-none transition-all"
                 >
                   <Linkedin className="w-5 h-5" />
                 </a>
@@ -97,7 +98,7 @@ const Home = () => {
                   href="https://www.instagram.com" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="p-3 bg-secondary border border-border rounded-lg hover:border-primary hover:bg-primary/10 transition-colors"
+                  className="p-3 bg-secondary border border-border rounded-lg hover:border-primary hover:bg-primary/10 focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background focus:outline-none transition-all"
                 >
                   <Instagram className="w-5 h-5" />
                 </a>
@@ -153,6 +154,58 @@ const Home = () => {
                 <div className="flex items-center gap-2 text-muted-foreground">
                   <MapPin className="w-4 h-4" />
                   <span className="text-sm">{job.location}</span>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Latest Blog Posts Section */}
+      <section className="py-20 px-6 bg-secondary/30">
+        <div className="container mx-auto max-w-6xl">
+          <div className="flex items-center justify-between mb-12">
+            <div>
+              <h2 className="text-4xl font-bold mb-2">Latest Blog Posts</h2>
+              <p className="text-muted-foreground">Recent insights on DevOps, SRE, and Cloud Infrastructure</p>
+            </div>
+            <Link to="/blog">
+              <Button 
+                variant="outline" 
+                className="border-border hover:bg-secondary hover:border-primary focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background transition-all"
+              >
+                View All Posts
+              </Button>
+            </Link>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-6">
+            {blogs.slice(0, 3).map((blog) => (
+              <Card key={blog.id} className="overflow-hidden bg-card border-border hover:border-primary/50 focus-within:border-primary focus-within:ring-2 focus-within:ring-primary transition-all group">
+                {/* Featured Image */}
+                {blog.imageUrl && (
+                  <div className="aspect-video overflow-hidden">
+                    <img 
+                      src={blog.imageUrl} 
+                      alt={blog.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                )}
+                
+                <div className="p-6 space-y-4">
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <Calendar className="w-4 h-4" />
+                    <span>{blog.date}</span>
+                  </div>
+                  <h3 className="text-xl font-bold group-hover:text-primary transition-colors line-clamp-2">{blog.title}</h3>
+                  <p className="text-muted-foreground line-clamp-3 text-sm">{blog.excerpt}</p>
+                  <Link 
+                    to={`/blog/${blog.id}`} 
+                    className="inline-flex items-center text-primary hover:text-primary/80 focus:text-primary focus:outline-none focus:underline transition-colors text-sm font-medium"
+                  >
+                    Read More →
+                  </Link>
                 </div>
               </Card>
             ))}

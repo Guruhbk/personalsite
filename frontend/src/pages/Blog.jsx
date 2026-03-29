@@ -20,12 +20,15 @@ const Blog = () => {
       <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
         <nav className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <Link to="/" className="text-xl font-bold hover:text-primary transition-colors">
+            <Link to="/" className="text-xl font-bold hover:text-primary focus:text-primary focus:outline-none transition-colors">
               Guru Prasanth
             </Link>
             <div className="flex items-center gap-4">
               <Link to="/">
-                <Button variant="outline" className="border-border hover:bg-secondary transition-colors">
+                <Button 
+                  variant="outline" 
+                  className="border-border hover:bg-secondary hover:border-primary focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background transition-all"
+                >
                   <ArrowLeft className="w-4 h-4 mr-2" />
                   Back to Home
                 </Button>
@@ -34,7 +37,7 @@ const Blog = () => {
                 variant="outline"
                 size="icon"
                 onClick={toggleTheme}
-                className="border-border hover:bg-secondary transition-colors"
+                className="border-border hover:bg-secondary hover:border-primary focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background transition-all"
               >
                 {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
               </Button>
@@ -51,7 +54,7 @@ const Blog = () => {
           
           <div className="grid md:grid-cols-2 gap-8">
             {blogs.map((blog) => (
-              <Card key={blog.id} className="overflow-hidden bg-card border-border hover:border-primary/50 transition-colors group">
+              <Card key={blog.id} className="overflow-hidden bg-card border-border hover:border-primary/50 focus-within:border-primary focus-within:ring-2 focus-within:ring-primary transition-all group">
                 {/* Featured Image */}
                 {blog.imageUrl && (
                   <div className="aspect-video overflow-hidden">
@@ -77,7 +80,7 @@ const Blog = () => {
                   <h2 className="text-2xl font-bold group-hover:text-primary transition-colors">{blog.title}</h2>
                   <p className="text-muted-foreground leading-relaxed">{blog.excerpt}</p>
                   <Link to={`/blog/${blog.id}`}>
-                    <Button className="bg-primary text-primary-foreground hover:bg-primary/90 transition-colors">
+                    <Button className="bg-primary text-primary-foreground hover:bg-primary/90 focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background transition-all">
                       Read Article
                     </Button>
                   </Link>

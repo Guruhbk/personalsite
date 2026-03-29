@@ -22,19 +22,18 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Setup Node + Yarn
         uses: actions/setup-node@v4
         with:
           node-version: 18
-          # ❌ removed cache (since no lock file)
+          cache: yarn
+          cache-dependency-path: frontend/yarn.lock
 
       - name: Install dependencies
-        run: npm install --legacy-peer-deps   # 👈 instead of npm ci
-      - name: Fix AJV issue
-        run: |
-          npm install ajv@6 ajv-keywords@3 --legacy-peer-deps
+        run: yarn install --frozen-lockfile
+
       - name: Build React app
-        run: npm run build
+        run: yarn build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

@@ -2,6 +2,8 @@
 title: Migrating Kafka to EKS with Strimzi Operator
 date: December 28, 2024
 author: Guru Prasanth E
+category: AWS Cloud
+tags: [AWS, Kafka, EKS, Kubernetes, Migration]
 excerpt: A comprehensive guide to migrating Kafka infrastructure from EC2 to Amazon EKS using the Strimzi Operator, ensuring high availability and minimal downtime.
 image: https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800
 ---

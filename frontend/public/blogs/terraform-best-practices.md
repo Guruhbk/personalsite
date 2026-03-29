@@ -2,6 +2,8 @@
 title: Infrastructure as Code: Terraform Best Practices
 date: November 10, 2024
 author: Guru Prasanth E
+category: CI/CD
+tags: [Terraform, IaC, DevOps, Automation]
 excerpt: Lessons learned from managing multi-environment infrastructure with Terraform. Discover patterns for reusable modules, remote state management, and CI/CD integration.
 image: https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800
 ---

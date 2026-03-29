@@ -223,6 +223,13 @@ const Home = () => {
                   )}
                   
                   <div className="p-6 space-y-4">
+                    {/* Category Badge */}
+                    {blog.category && (
+                      <span className="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium">
+                        {blog.category}
+                      </span>
+                    )}
+                    
                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
                       <Calendar className="w-4 h-4" />
                       <span>{blog.date}</span>

@@ -2,6 +2,8 @@
 title: Kubernetes Security Best Practices in 2025
 date: January 15, 2025
 author: Guru Prasanth E
+category: Kubernetes
+tags: [Kubernetes, Security, DevOps, RBAC]
 excerpt: Exploring RBAC, service accounts, and least-privilege access patterns to secure your Kubernetes clusters. Learn how to implement admission controllers and automated security audits.
 image: https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800
 ---

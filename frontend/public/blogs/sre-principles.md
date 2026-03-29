@@ -2,6 +2,8 @@
 title: Building Resilient Systems: SRE Principles
 date: October 5, 2024
 author: Guru Prasanth E
+category: System Design
+tags: [SRE, Reliability, System Design, Monitoring]
 excerpt: Deep dive into Site Reliability Engineering principles and how to apply them in production environments for maximum uptime and reliability.
 image: https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800
 ---

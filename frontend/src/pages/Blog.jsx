@@ -53,24 +53,24 @@ const Blog = () => {
       <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
         <nav className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <Link to="/" className="text-xl font-bold hover:text-primary focus:text-primary focus:outline-none transition-colors">
+            <Link to="/" className="text-xl font-bold hover:text-primary focus-visible:text-primary focus-visible:outline-none transition-colors">
               Guru Prasanth
             </Link>
             <div className="flex items-center gap-4">
-              <Link to="/">
+              <Link to="/" className="focus-visible:outline-none">
                 <Button 
                   variant="outline" 
-                  className="bg-transparent border-border text-foreground hover:bg-secondary hover:text-foreground hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:text-primary focus-visible:border-primary transition-all"
+                  className="bg-transparent border-border text-foreground hover:bg-secondary hover:text-foreground hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:border-primary transition-all group [&:focus-visible]:!text-primary [&:focus-visible_svg]:!text-primary [&:focus-visible_span]:!text-primary"
                 >
                   <ArrowLeft className="w-4 h-4 mr-2" />
-                  Back to Home
+                  <span>Back to Home</span>
                 </Button>
               </Link>
               <Button
                 variant="outline"
                 size="icon"
                 onClick={toggleTheme}
-                className="bg-transparent border-border text-foreground hover:bg-secondary hover:text-foreground hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:text-primary focus-visible:border-primary transition-all"
+                className="bg-transparent border-border text-foreground hover:bg-secondary hover:text-foreground hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:border-primary transition-all [&:focus-visible]:!text-primary [&:focus-visible_svg]:!text-primary"
               >
                 {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
               </Button>
@@ -89,10 +89,10 @@ const Blog = () => {
               <button
                 key={category}
                 onClick={() => handleCategoryFilter(category)}
-                className={`px-4 py-2 rounded-lg font-medium transition-all focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background ${
+                className={`px-4 py-2 rounded-lg font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
                   selectedCategory === category
-                    ? 'bg-primary text-primary-foreground shadow-md'
-                    : 'bg-secondary text-foreground hover:bg-secondary/80 hover:border-primary border border-border'
+                    ? 'bg-primary text-primary-foreground shadow-md focus-visible:brightness-110'
+                    : 'bg-secondary text-foreground hover:bg-secondary/80 hover:border-primary border border-border focus-visible:text-primary focus-visible:border-primary'
                 }`}
               >
                 {category}
@@ -110,9 +110,9 @@ const Blog = () => {
                 <Link 
                   key={blog.id} 
                   to={`/blog/${blog.id}`}
-                  className="block focus:outline-none"
+                  className="block focus-visible:outline-none group"
                 >
-                  <Card className="overflow-hidden bg-card border-border hover:border-primary/50 focus-within:border-primary focus-within:ring-2 focus-within:ring-primary transition-all group h-full cursor-pointer">
+                  <Card className="overflow-hidden bg-card border-border hover:border-primary/50 group-focus-visible:border-primary group-focus-visible:ring-2 group-focus-visible:ring-primary transition-all h-full cursor-pointer">
                     {blog.image && (
                       <div className="aspect-video overflow-hidden">
                         <img 
@@ -141,7 +141,7 @@ const Blog = () => {
                           <span>{blog.author}</span>
                         </div>
                       </div>
-                      <h2 className="text-2xl font-bold group-hover:text-primary transition-colors">{blog.title}</h2>
+                      <h2 className="text-2xl font-bold group-hover:text-primary group-focus-visible:text-primary transition-colors">{blog.title}</h2>
                       <p className="text-muted-foreground leading-relaxed">{blog.excerpt}</p>
                       
                       {blog.tags && blog.tags.length > 0 && (

@@ -102,9 +102,9 @@ const Blog = () => {
                     </div>
                     <h2 className="text-2xl font-bold group-hover:text-primary transition-colors">{blog.title}</h2>
                     <p className="text-muted-foreground leading-relaxed">{blog.excerpt}</p>
-                    <span className="inline-block bg-primary text-primary-foreground px-6 py-2 rounded-md group-hover:bg-primary/90 transition-colors">
+                    <div className="inline-flex items-center justify-center px-6 py-2 bg-primary text-primary-foreground rounded-md group-hover:bg-primary/90 transition-colors font-medium">
                       Read Article
-                    </span>
+                    </div>
                   </div>
                 </Card>
               </Link>

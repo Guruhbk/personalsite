@@ -229,9 +229,9 @@ const Home = () => {
                     </div>
                     <h3 className="text-xl font-bold group-hover:text-primary transition-colors line-clamp-2">{blog.title}</h3>
                     <p className="text-muted-foreground line-clamp-3 text-sm">{blog.excerpt}</p>
-                    <span className="inline-flex items-center text-primary group-hover:text-primary/80 transition-colors text-sm font-medium">
+                    <div className="inline-flex items-center text-primary group-hover:text-primary/80 transition-colors text-sm font-semibold">
                       Read More →
-                    </span>
+                    </div>
                   </div>
                 </Card>
               </Link>

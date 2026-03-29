@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/button';
 import { Card } from '../components/ui/card';
 import { toast } from '../hooks/use-toast';
-import { Download, Linkedin, Instagram, Calendar, MapPin, Briefcase, Moon, Sun } from 'lucide-react';
+import { Download, Linkedin, Instagram, Github, Calendar, MapPin, Briefcase, Moon, Sun } from 'lucide-react';
 import { mockData } from '../utils/mock';
 import { useTheme } from '../context/ThemeContext';
 
@@ -119,6 +119,14 @@ const Home = () => {
                   className="p-3 bg-secondary border border-border rounded-lg hover:border-primary hover:bg-primary/10 focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background focus:outline-none transition-all"
                 >
                   <Linkedin className="w-5 h-5" />
+                </a>
+                <a 
+                  href="https://github.com/Guruhbk" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="p-3 bg-secondary border border-border rounded-lg hover:border-primary hover:bg-primary/10 focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background focus:outline-none transition-all"
+                >
+                  <Github className="w-5 h-5" />
                 </a>
                 <a 
                   href="https://www.instagram.com/guru_prasanth20/" 
@@ -263,6 +271,14 @@ const Home = () => {
                 className="text-muted-foreground hover:text-primary transition-colors"
               >
                 <Linkedin className="w-5 h-5" />
+              </a>
+              <a 
+                href="https://github.com/Guruhbk" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Github className="w-5 h-5" />
               </a>
               <a 
                 href="https://www.instagram.com/guru_prasanth20/" 

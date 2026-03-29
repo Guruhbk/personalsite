@@ -69,7 +69,7 @@ const Home = () => {
                 variant="outline"
                 size="icon"
                 onClick={toggleTheme}
-                className="border-border text-foreground hover:bg-secondary hover:text-foreground hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:text-foreground transition-all"
+                className="border-border text-foreground hover:bg-secondary hover:text-foreground hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:text-primary focus-visible:border-primary transition-all"
               >
                 {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
               </Button>
@@ -105,7 +105,7 @@ const Home = () => {
               <div className="flex flex-wrap gap-4 pt-4">
                 <Button 
                   onClick={handleDownloadResume}
-                  className="bg-primary text-primary-foreground hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background transition-all"
+                  className="bg-primary text-primary-foreground hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:brightness-110 transition-all"
                 >
                   <Download className="w-4 h-4 mr-2" />
                   Download Resume
@@ -116,7 +116,7 @@ const Home = () => {
                   href="https://www.linkedin.com/in/guru-prasanth-2003/" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="p-3 bg-secondary border border-border rounded-lg hover:border-primary hover:bg-primary/10 focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background focus:outline-none transition-all"
+                  className="p-3 bg-secondary border border-border rounded-lg hover:border-primary hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:border-primary focus-visible:text-primary transition-all"
                 >
                   <Linkedin className="w-5 h-5" />
                 </a>
@@ -124,7 +124,7 @@ const Home = () => {
                   href="https://github.com/Guruhbk" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="p-3 bg-secondary border border-border rounded-lg hover:border-primary hover:bg-primary/10 focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background focus:outline-none transition-all"
+                  className="p-3 bg-secondary border border-border rounded-lg hover:border-primary hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:border-primary focus-visible:text-primary transition-all"
                 >
                   <Github className="w-5 h-5" />
                 </a>
@@ -132,7 +132,7 @@ const Home = () => {
                   href="https://www.instagram.com/guru_prasanth20/" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="p-3 bg-secondary border border-border rounded-lg hover:border-primary hover:bg-primary/10 focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background focus:outline-none transition-all"
+                  className="p-3 bg-secondary border border-border rounded-lg hover:border-primary hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:border-primary focus-visible:text-primary transition-all"
                 >
                   <Instagram className="w-5 h-5" />
                 </a>
@@ -148,12 +148,12 @@ const Home = () => {
           <h2 className="text-4xl font-bold mb-12">Technical Skills</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {mockData.skills.map((category, idx) => (
-              <Card key={idx} className="p-6 bg-card border-border hover:border-primary/50 transition-colors">
+              <Card key={idx} className="p-6 bg-card border-border hover:border-primary/50 focus-within:border-primary focus-within:ring-2 focus-within:ring-primary transition-all group tabindex-0" tabIndex={0}>
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="text-primary">
+                  <div className="text-primary group-focus-within:brightness-125">
                     {category.icon}
                   </div>
-                  <h3 className="text-lg font-semibold">{category.category}</h3>
+                  <h3 className="text-lg font-semibold group-focus-within:text-primary transition-colors">{category.category}</h3>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {category.items.map((skill, i) => (
@@ -174,10 +174,10 @@ const Home = () => {
           <h2 className="text-4xl font-bold mb-12">Work Experience</h2>
           <div className="space-y-6">
             {mockData.experience.map((job, idx) => (
-              <Card key={idx} className="p-6 bg-card border-border hover:border-primary/50 transition-colors">
+              <Card key={idx} className="p-6 bg-card border-border hover:border-primary/50 focus-within:border-primary focus-within:ring-2 focus-within:ring-primary transition-all group" tabIndex={0}>
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
                   <div>
-                    <h3 className="text-2xl font-semibold">{job.role}</h3>
+                    <h3 className="text-2xl font-semibold group-focus-within:text-primary transition-colors">{job.role}</h3>
                     <p className="text-lg text-muted-foreground">{job.company}</p>
                   </div>
                   <div className="flex items-center gap-2 text-muted-foreground">
@@ -205,7 +205,7 @@ const Home = () => {
             </div>
             <Link to="/blog">
               <Button 
-                className="bg-primary text-primary-foreground hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background transition-all"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:brightness-110 transition-all"
               >
                 Explore More
               </Button>

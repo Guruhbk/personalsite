@@ -121,7 +121,7 @@ const Home = () => {
                 Guru Prasanth E
               </h1>
               <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed">
-                A versatile IT professional with 9 years of experience spanning backend development and DevOps/Site Reliability Engineering. Currently leading site reliability initiatives at Freshworks, driving innovation and operational excellence.
+                Seasoned IT professional with 10+ years of experience across backend engineering and Site Reliability, specializing in building scalable, resilient, and high-performing distributed systems. Proven leader driving reliability, operational excellence, and large-scale infrastructure initiatives with a strong focus on architecture and system design.
               </p>
               <div className="flex flex-wrap gap-4 pt-4">
                 <Button 
@@ -228,33 +228,36 @@ const Home = () => {
           
           <div className="grid md:grid-cols-3 gap-6">
             {blogs.slice(0, 3).map((blog) => (
-              <Card key={blog.id} className="overflow-hidden bg-card border-border hover:border-primary/50 focus-within:border-primary focus-within:ring-2 focus-within:ring-primary transition-all group">
-                {/* Featured Image */}
-                {blog.image && (
-                  <div className="aspect-video overflow-hidden">
-                    <img 
-                      src={blog.image} 
-                      alt={blog.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
+              <Link 
+                key={blog.id} 
+                to={`/blog/${blog.id}`}
+                className="block focus:outline-none"
+              >
+                <Card className="overflow-hidden bg-card border-border hover:border-primary/50 focus-within:border-primary focus-within:ring-2 focus-within:ring-primary transition-all group h-full cursor-pointer">
+                  {/* Featured Image */}
+                  {blog.image && (
+                    <div className="aspect-video overflow-hidden">
+                      <img 
+                        src={blog.image} 
+                        alt={blog.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                  )}
+                  
+                  <div className="p-6 space-y-4">
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <Calendar className="w-4 h-4" />
+                      <span>{blog.date}</span>
+                    </div>
+                    <h3 className="text-xl font-bold group-hover:text-primary transition-colors line-clamp-2">{blog.title}</h3>
+                    <p className="text-muted-foreground line-clamp-3 text-sm">{blog.excerpt}</p>
+                    <span className="inline-flex items-center text-primary group-hover:text-primary/80 transition-colors text-sm font-medium">
+                      Read More →
+                    </span>
                   </div>
-                )}
-                
-                <div className="p-6 space-y-4">
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Calendar className="w-4 h-4" />
-                    <span>{blog.date}</span>
-                  </div>
-                  <h3 className="text-xl font-bold group-hover:text-primary transition-colors line-clamp-2">{blog.title}</h3>
-                  <p className="text-muted-foreground line-clamp-3 text-sm">{blog.excerpt}</p>
-                  <Link 
-                    to={`/blog/${blog.id}`} 
-                    className="inline-flex items-center text-primary hover:text-primary/80 focus:text-primary focus:outline-none focus:underline transition-colors text-sm font-medium"
-                  >
-                    Read More →
-                  </Link>
-                </div>
-              </Card>
+                </Card>
+              </Link>
             ))}
           </div>
         </div>

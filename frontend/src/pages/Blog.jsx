@@ -72,38 +72,42 @@ const Blog = () => {
           
           <div className="grid md:grid-cols-2 gap-8">
             {blogs.map((blog) => (
-              <Card key={blog.id} className="overflow-hidden bg-card border-border hover:border-primary/50 focus-within:border-primary focus-within:ring-2 focus-within:ring-primary transition-all group">
-                {/* Featured Image */}
-                {blog.image && (
-                  <div className="aspect-video overflow-hidden">
-                    <img 
-                      src={blog.image} 
-                      alt={blog.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                )}
-                
-                <div className="p-8 space-y-4">
-                  <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                    <div className="flex items-center gap-2">
-                      <Calendar className="w-4 h-4" />
-                      <span>{blog.date}</span>
+              <Link 
+                key={blog.id} 
+                to={`/blog/${blog.id}`}
+                className="block focus:outline-none"
+              >
+                <Card className="overflow-hidden bg-card border-border hover:border-primary/50 focus-within:border-primary focus-within:ring-2 focus-within:ring-primary transition-all group h-full cursor-pointer">
+                  {/* Featured Image */}
+                  {blog.image && (
+                    <div className="aspect-video overflow-hidden">
+                      <img 
+                        src={blog.image} 
+                        alt={blog.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
                     </div>
-                    <div className="flex items-center gap-2">
-                      <User className="w-4 h-4" />
-                      <span>{blog.author}</span>
+                  )}
+                  
+                  <div className="p-8 space-y-4">
+                    <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                      <div className="flex items-center gap-2">
+                        <Calendar className="w-4 h-4" />
+                        <span>{blog.date}</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <User className="w-4 h-4" />
+                        <span>{blog.author}</span>
+                      </div>
                     </div>
-                  </div>
-                  <h2 className="text-2xl font-bold group-hover:text-primary transition-colors">{blog.title}</h2>
-                  <p className="text-muted-foreground leading-relaxed">{blog.excerpt}</p>
-                  <Link to={`/blog/${blog.id}`}>
-                    <Button className="bg-primary text-primary-foreground hover:bg-primary/90 focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background transition-all">
+                    <h2 className="text-2xl font-bold group-hover:text-primary transition-colors">{blog.title}</h2>
+                    <p className="text-muted-foreground leading-relaxed">{blog.excerpt}</p>
+                    <span className="inline-block bg-primary text-primary-foreground px-6 py-2 rounded-md group-hover:bg-primary/90 transition-colors">
                       Read Article
-                    </Button>
-                  </Link>
-                </div>
-              </Card>
+                    </span>
+                  </div>
+                </Card>
+              </Link>
             ))}
           </div>
         </div>

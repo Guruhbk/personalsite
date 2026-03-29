@@ -18,6 +18,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: frontend   # 👈 IMPORTANT FIX
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -27,6 +31,7 @@ jobs:
         with:
           node-version: 18
           cache: npm
+          cache-dependency-path: frontend/package-lock.json  # 👈 FIX
 
       - name: Install dependencies
         run: npm ci
@@ -37,16 +42,17 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./build
+          path: frontend/build   # 👈 FIX
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
+
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - name: Deploy to GitHub Pages
+      - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4

@@ -10,17 +10,13 @@ permissions:
   pages: write
   id-token: write
 
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
-
 jobs:
   build:
     runs-on: ubuntu-latest
 
     defaults:
       run:
-        working-directory: frontend   # 👈 IMPORTANT FIX
+        working-directory: frontend
 
     steps:
       - name: Checkout code
@@ -30,11 +26,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18
-          cache: npm
-          cache-dependency-path: frontend/package-lock.json  # 👈 FIX
+          # ❌ removed cache (since no lock file)
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install   # 👈 instead of npm ci
 
       - name: Build React app
         run: npm run build
@@ -42,7 +37,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: frontend/build   # 👈 FIX
+          path: frontend/build
 
   deploy:
     needs: build

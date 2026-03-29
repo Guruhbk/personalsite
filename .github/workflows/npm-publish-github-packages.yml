@@ -6,12 +6,10 @@ on:
       - main
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write   # 👈 REQUIRED for gh-pages push
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     defaults:
@@ -26,26 +24,16 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Build React app
-        run: yarn build
+      - name: Configure Git (required for gh-pages)
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: frontend/build
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
-    steps:
-      - name: Deploy
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Deploy to GitHub Pages
+        run: yarn deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

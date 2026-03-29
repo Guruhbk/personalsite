@@ -22,28 +22,6 @@ const Home = () => {
       .catch(error => {
         console.error('Error loading blogs:', error);
       });
-
-    // Scroll spy for active navigation
-    const handleScroll = () => {
-      const sections = ['home', 'skills', 'experience'];
-      const scrollPosition = window.scrollY + 100;
-
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const offsetTop = element.offsetTop;
-          const offsetBottom = offsetTop + element.offsetHeight;
-
-          if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
-            setActiveSection(section === 'home' ? 'about' : section);
-            break;
-          }
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const handleDownloadResume = () => {
@@ -218,10 +196,9 @@ const Home = () => {
             </div>
             <Link to="/blog">
               <Button 
-                variant="outline" 
-                className="border-border hover:bg-secondary hover:border-primary focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background transition-all"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background transition-all"
               >
-                View All Posts
+                Explore More
               </Button>
             </Link>
           </div>

@@ -1,0 +1,38 @@
+[
+  {
+    "id": "kubernetes-security-2025",
+    "filename": "kubernetes-security-2025.md",
+    "title": "Kubernetes Security Best Practices in 2025",
+    "date": "January 15, 2025",
+    "author": "Guru Prasanth E",
+    "excerpt": "Exploring RBAC, service accounts, and least-privilege access patterns to secure your Kubernetes clusters. Learn how to implement admission controllers and automated security audits.",
+    "image": "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800"
+  },
+  {
+    "id": "kafka-eks-migration",
+    "filename": "kafka-eks-migration.md",
+    "title": "Migrating Kafka to EKS with Strimzi Operator",
+    "date": "December 28, 2024",
+    "author": "Guru Prasanth E",
+    "excerpt": "A comprehensive guide to migrating Kafka infrastructure from EC2 to Amazon EKS using the Strimzi Operator, ensuring high availability and minimal downtime.",
+    "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800"
+  },
+  {
+    "id": "terraform-best-practices",
+    "filename": "terraform-best-practices.md",
+    "title": "Infrastructure as Code: Terraform Best Practices",
+    "date": "November 10, 2024",
+    "author": "Guru Prasanth E",
+    "excerpt": "Lessons learned from managing multi-environment infrastructure with Terraform. Discover patterns for reusable modules, remote state management, and CI/CD integration.",
+    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800"
+  },
+  {
+    "id": "sre-principles",
+    "filename": "sre-principles.md",
+    "title": "Building Resilient Systems: SRE Principles",
+    "date": "October 5, 2024",
+    "author": "Guru Prasanth E",
+    "excerpt": "Deep dive into Site Reliability Engineering principles and how to apply them in production environments for maximum uptime and reliability.",
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800"
+  }
+]

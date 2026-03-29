@@ -13,8 +13,15 @@ const Home = () => {
   const [activeSection, setActiveSection] = useState('about');
 
   useEffect(() => {
-    // Load mock blogs
-    setBlogs(mockData.blogs);
+    // Load blogs from manifest
+    fetch('/blogs/manifest.json')
+      .then(res => res.json())
+      .then(data => {
+        setBlogs(data);
+      })
+      .catch(error => {
+        console.error('Error loading blogs:', error);
+      });
 
     // Scroll spy for active navigation
     const handleScroll = () => {
@@ -223,10 +230,10 @@ const Home = () => {
             {blogs.slice(0, 3).map((blog) => (
               <Card key={blog.id} className="overflow-hidden bg-card border-border hover:border-primary/50 focus-within:border-primary focus-within:ring-2 focus-within:ring-primary transition-all group">
                 {/* Featured Image */}
-                {blog.imageUrl && (
+                {blog.image && (
                   <div className="aspect-video overflow-hidden">
                     <img 
-                      src={blog.imageUrl} 
+                      src={blog.image} 
                       alt={blog.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />

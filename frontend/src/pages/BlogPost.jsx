@@ -2,18 +2,50 @@ import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Button } from '../components/ui/button';
 import { ArrowLeft, Calendar, User, Moon, Sun } from 'lucide-react';
-import { mockData } from '../utils/mock';
 import { useTheme } from '../context/ThemeContext';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 const BlogPost = () => {
   const { theme, toggleTheme } = useTheme();
   const { id } = useParams();
   const [blog, setBlog] = useState(null);
+  const [markdown, setMarkdown] = useState('');
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const foundBlog = mockData.blogs.find(b => b.id === id);
-    setBlog(foundBlog);
+    // Fetch blog manifest to get metadata
+    fetch('/blogs/manifest.json')
+      .then(res => res.json())
+      .then(data => {
+        const foundBlog = data.find(b => b.id === id);
+        if (foundBlog) {
+          setBlog(foundBlog);
+          // Fetch the markdown file
+          return fetch(`/blogs/${foundBlog.filename}`);
+        }
+        throw new Error('Blog not found');
+      })
+      .then(res => res.text())
+      .then(text => {
+        // Remove frontmatter from markdown
+        const content = text.replace(/^---[\s\S]*?---/, '').trim();
+        setMarkdown(content);
+        setLoading(false);
+      })
+      .catch(error => {
+        console.error('Error loading blog:', error);
+        setLoading(false);
+      });
   }, [id]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-background text-foreground flex items-center justify-center">
+        <p className="text-xl text-muted-foreground">Loading...</p>
+      </div>
+    );
+  }
 
   if (!blog) {
     return (
@@ -59,10 +91,10 @@ const BlogPost = () => {
       <article className="pt-32 pb-20 px-6">
         <div className="container mx-auto max-w-4xl">
           {/* Featured Image */}
-          {blog.imageUrl && (
+          {blog.image && (
             <div className="mb-12 rounded-2xl overflow-hidden shadow-2xl">
               <img 
-                src={blog.imageUrl} 
+                src={blog.image} 
                 alt={blog.title}
                 className="w-full h-96 object-cover"
               />
@@ -85,10 +117,21 @@ const BlogPost = () => {
             </div>
 
             <div className="border-t border-border pt-8">
-              <div className="prose prose-invert max-w-none">
-                <div className="text-muted-foreground leading-relaxed space-y-6 whitespace-pre-wrap">
-                  {blog.content}
-                </div>
+              <div className="prose prose-lg dark:prose-invert max-w-none
+                prose-headings:font-bold prose-headings:text-foreground
+                prose-p:text-muted-foreground prose-p:leading-relaxed
+                prose-a:text-primary prose-a:no-underline hover:prose-a:underline
+                prose-strong:text-foreground prose-strong:font-semibold
+                prose-code:text-primary prose-code:bg-secondary prose-code:px-1 prose-code:py-0.5 prose-code:rounded
+                prose-pre:bg-secondary prose-pre:border prose-pre:border-border
+                prose-blockquote:border-l-primary prose-blockquote:text-muted-foreground
+                prose-ul:text-muted-foreground prose-ol:text-muted-foreground
+                prose-li:text-muted-foreground
+                prose-img:rounded-lg prose-img:shadow-lg
+              ">
+                <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                  {markdown}
+                </ReactMarkdown>
               </div>
             </div>
           </div>

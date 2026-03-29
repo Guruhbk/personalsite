@@ -3,16 +3,34 @@ import { Link } from 'react-router-dom';
 import { Card } from '../components/ui/card';
 import { Button } from '../components/ui/button';
 import { ArrowLeft, Calendar, User, Moon, Sun } from 'lucide-react';
-import { mockData } from '../utils/mock';
 import { useTheme } from '../context/ThemeContext';
 
 const Blog = () => {
   const { theme, toggleTheme } = useTheme();
   const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setBlogs(mockData.blogs);
+    // Fetch blog manifest
+    fetch('/blogs/manifest.json')
+      .then(res => res.json())
+      .then(data => {
+        setBlogs(data);
+        setLoading(false);
+      })
+      .catch(error => {
+        console.error('Error loading blogs:', error);
+        setLoading(false);
+      });
   }, []);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-background text-foreground flex items-center justify-center">
+        <p className="text-xl text-muted-foreground">Loading blogs...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
@@ -56,10 +74,10 @@ const Blog = () => {
             {blogs.map((blog) => (
               <Card key={blog.id} className="overflow-hidden bg-card border-border hover:border-primary/50 focus-within:border-primary focus-within:ring-2 focus-within:ring-primary transition-all group">
                 {/* Featured Image */}
-                {blog.imageUrl && (
+                {blog.image && (
                   <div className="aspect-video overflow-hidden">
                     <img 
-                      src={blog.imageUrl} 
+                      src={blog.image} 
                       alt={blog.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />

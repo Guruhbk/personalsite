@@ -10,13 +10,45 @@ import { useTheme } from '../context/ThemeContext';
 const Home = () => {
   const { theme, toggleTheme } = useTheme();
   const [blogs, setBlogs] = useState([]);
+  const [activeSection, setActiveSection] = useState('about');
 
   useEffect(() => {
     // Load mock blogs
     setBlogs(mockData.blogs);
+
+    // Scroll spy for active navigation
+    const handleScroll = () => {
+      const sections = ['home', 'skills', 'experience'];
+      const scrollPosition = window.scrollY + 100;
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const offsetTop = element.offsetTop;
+          const offsetBottom = offsetTop + element.offsetHeight;
+
+          if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
+            setActiveSection(section === 'home' ? 'about' : section);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const handleDownloadResume = () => {
+    // Download the actual PDF resume
+    const link = document.createElement('a');
+    link.href = 'https://customer-assets.emergentagent.com/job_d11f29f7-389a-47d6-bbab-d1e25765930e/artifacts/l5eabg87_Guru_Prasanth_E_Resume-2-1.pdf';
+    link.download = 'Guru_Prasanth_E_Resume.pdf';
+    link.target = '_blank';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
     toast({
       title: "Download started",
       description: "Your resume is being downloaded.",
@@ -33,6 +65,14 @@ const Home = () => {
               Guru Prasanth
             </a>
             <div className="flex items-center gap-6">
+              <a 
+                href="#home" 
+                className={`text-base font-semibold hover:text-primary focus:text-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background rounded-md px-3 py-2 transition-all ${
+                  activeSection === 'about' ? 'text-primary underline underline-offset-4 decoration-2' : 'text-foreground'
+                }`}
+              >
+                About Guru
+              </a>
               <Link 
                 to="/blog" 
                 className="text-base font-semibold text-foreground hover:text-primary focus:text-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background rounded-md px-3 py-2 transition-all"
@@ -87,7 +127,7 @@ const Home = () => {
               </div>
               <div className="flex gap-4 pt-2">
                 <a 
-                  href="https://www.linkedin.com/in/guru-prasanth-2003" 
+                  href="https://www.linkedin.com/in/guru-prasanth-2003/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="p-3 bg-secondary border border-border rounded-lg hover:border-primary hover:bg-primary/10 focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background focus:outline-none transition-all"
@@ -95,7 +135,7 @@ const Home = () => {
                   <Linkedin className="w-5 h-5" />
                 </a>
                 <a 
-                  href="https://www.instagram.com" 
+                  href="https://www.instagram.com/guru_prasanth20/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="p-3 bg-secondary border border-border rounded-lg hover:border-primary hover:bg-primary/10 focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background focus:outline-none transition-all"
@@ -222,7 +262,7 @@ const Home = () => {
             </div>
             <div className="flex gap-4">
               <a 
-                href="https://www.linkedin.com/in/guru-prasanth-2003" 
+                href="https://www.linkedin.com/in/guru-prasanth-2003/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-colors"
@@ -230,7 +270,7 @@ const Home = () => {
                 <Linkedin className="w-5 h-5" />
               </a>
               <a 
-                href="https://www.instagram.com" 
+                href="https://www.instagram.com/guru_prasanth20/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-colors"

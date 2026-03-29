@@ -148,12 +148,16 @@ const Home = () => {
           <h2 className="text-4xl font-bold mb-12">Technical Skills</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {mockData.skills.map((category, idx) => (
-              <Card key={idx} className="p-6 bg-card border-border hover:border-primary/50 focus-within:border-primary focus-within:ring-2 focus-within:ring-primary transition-all group tabindex-0" tabIndex={0}>
+              <Card 
+                key={idx} 
+                className="p-6 bg-card border-border hover:border-primary/50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary transition-all group" 
+                tabIndex={0}
+              >
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="text-primary group-focus-within:brightness-125">
+                  <div className="text-primary group-focus:brightness-125">
                     {category.icon}
                   </div>
-                  <h3 className="text-lg font-semibold group-focus-within:text-primary transition-colors">{category.category}</h3>
+                  <h3 className="text-lg font-semibold group-focus:text-primary group-hover:text-primary transition-colors">{category.category}</h3>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {category.items.map((skill, i) => (
@@ -174,10 +178,14 @@ const Home = () => {
           <h2 className="text-4xl font-bold mb-12">Work Experience</h2>
           <div className="space-y-6">
             {mockData.experience.map((job, idx) => (
-              <Card key={idx} className="p-6 bg-card border-border hover:border-primary/50 focus-within:border-primary focus-within:ring-2 focus-within:ring-primary transition-all group" tabIndex={0}>
+              <Card 
+                key={idx} 
+                className="p-6 bg-card border-border hover:border-primary/50 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary transition-all group" 
+                tabIndex={0}
+              >
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
                   <div>
-                    <h3 className="text-2xl font-semibold group-focus-within:text-primary transition-colors">{job.role}</h3>
+                    <h3 className="text-2xl font-semibold group-focus:text-primary group-hover:text-primary transition-colors">{job.role}</h3>
                     <p className="text-lg text-muted-foreground">{job.company}</p>
                   </div>
                   <div className="flex items-center gap-2 text-muted-foreground">

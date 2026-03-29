@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Card } from '../components/ui/card';
 import { Button } from '../components/ui/button';
-import { ArrowLeft, Calendar, User } from 'lucide-react';
+import { ArrowLeft, Calendar, User, Moon, Sun } from 'lucide-react';
 import { mockData } from '../utils/mock';
+import { useTheme } from '../context/ThemeContext';
 
 const Blog = () => {
+  const { theme, toggleTheme } = useTheme();
   const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
@@ -13,20 +15,30 @@ const Blog = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white">
+    <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a]/95 backdrop-blur-sm border-b border-[#2a2a2a]">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
         <nav className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <Link to="/" className="text-xl font-bold hover:text-[#d0d0d0] transition-colors">
+            <Link to="/" className="text-xl font-bold hover:text-primary transition-colors">
               Guru Prasanth
             </Link>
-            <Link to="/">
-              <Button variant="outline" className="border-[#2a2a2a] hover:bg-[#1a1a1a] transition-colors">
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to Home
+            <div className="flex items-center gap-4">
+              <Link to="/">
+                <Button variant="outline" className="border-border hover:bg-secondary transition-colors">
+                  <ArrowLeft className="w-4 h-4 mr-2" />
+                  Back to Home
+                </Button>
+              </Link>
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={toggleTheme}
+                className="border-border hover:bg-secondary transition-colors"
+              >
+                {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
               </Button>
-            </Link>
+            </div>
           </div>
         </nav>
       </header>
@@ -35,13 +47,24 @@ const Blog = () => {
       <section className="pt-32 pb-20 px-6">
         <div className="container mx-auto max-w-6xl">
           <h1 className="text-5xl font-bold mb-4">Blog</h1>
-          <p className="text-xl text-[#a0a0a0] mb-12">Insights on DevOps, SRE, and Cloud Infrastructure</p>
+          <p className="text-xl text-muted-foreground mb-12">Insights on DevOps, SRE, and Cloud Infrastructure</p>
           
           <div className="grid md:grid-cols-2 gap-8">
             {blogs.map((blog) => (
-              <Card key={blog.id} className="p-8 bg-[#0f0f0f] border-[#2a2a2a] hover:border-white transition-colors">
-                <div className="space-y-4">
-                  <div className="flex items-center gap-4 text-sm text-[#a0a0a0]">
+              <Card key={blog.id} className="overflow-hidden bg-card border-border hover:border-primary/50 transition-colors group">
+                {/* Featured Image */}
+                {blog.imageUrl && (
+                  <div className="aspect-video overflow-hidden">
+                    <img 
+                      src={blog.imageUrl} 
+                      alt={blog.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                )}
+                
+                <div className="p-8 space-y-4">
+                  <div className="flex items-center gap-4 text-sm text-muted-foreground">
                     <div className="flex items-center gap-2">
                       <Calendar className="w-4 h-4" />
                       <span>{blog.date}</span>
@@ -51,10 +74,10 @@ const Blog = () => {
                       <span>{blog.author}</span>
                     </div>
                   </div>
-                  <h2 className="text-2xl font-bold">{blog.title}</h2>
-                  <p className="text-[#a0a0a0] leading-relaxed">{blog.excerpt}</p>
+                  <h2 className="text-2xl font-bold group-hover:text-primary transition-colors">{blog.title}</h2>
+                  <p className="text-muted-foreground leading-relaxed">{blog.excerpt}</p>
                   <Link to={`/blog/${blog.id}`}>
-                    <Button className="bg-white text-black hover:bg-[#d0d0d0] transition-colors">
+                    <Button className="bg-primary text-primary-foreground hover:bg-primary/90 transition-colors">
                       Read Article
                     </Button>
                   </Link>
@@ -66,9 +89,9 @@ const Blog = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 px-6 border-t border-[#2a2a2a]">
+      <footer className="py-12 px-6 border-t border-border">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center text-[#a0a0a0] text-sm">
+          <div className="text-center text-muted-foreground text-sm">
             © {new Date().getFullYear()} Guru Prasanth E. All rights reserved.
           </div>
         </div>

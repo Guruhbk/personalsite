@@ -5,8 +5,10 @@ import { Input } from '../components/ui/input';
 import { Button } from '../components/ui/button';
 import { toast } from '../hooks/use-toast';
 import { Lock } from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
 
 const AdminLogin = () => {
+  const { theme } = useTheme();
   const navigate = useNavigate();
   const [credentials, setCredentials] = useState({ username: '', password: '' });
 
@@ -33,41 +35,41 @@ const AdminLogin = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white flex items-center justify-center px-6">
-      <Card className="w-full max-w-md p-8 bg-[#0f0f0f] border-[#2a2a2a]">
+    <div className="min-h-screen bg-background text-foreground flex items-center justify-center px-6 transition-colors duration-300">
+      <Card className="w-full max-w-md p-8 bg-card border-border">
         <div className="space-y-6">
           <div className="text-center space-y-2">
-            <div className="inline-flex items-center justify-center w-12 h-12 bg-[#1a1a1a] rounded-lg mb-4">
-              <Lock className="w-6 h-6" />
+            <div className="inline-flex items-center justify-center w-12 h-12 bg-secondary rounded-lg mb-4">
+              <Lock className="w-6 h-6 text-primary" />
             </div>
             <h1 className="text-3xl font-bold">Admin Login</h1>
-            <p className="text-[#a0a0a0]">Sign in to manage your blog</p>
+            <p className="text-muted-foreground">Sign in to manage your blog</p>
           </div>
 
           <form onSubmit={handleLogin} className="space-y-4">
             <div className="space-y-2">
-              <label className="text-sm text-[#a0a0a0]">Username</label>
+              <label className="text-sm text-muted-foreground">Username</label>
               <Input 
                 type="text"
                 value={credentials.username}
                 onChange={(e) => setCredentials({...credentials, username: e.target.value})}
                 required
-                className="bg-[#1a1a1a] border-[#2a2a2a] focus:border-white transition-colors"
+                className="bg-secondary border-border focus:border-primary transition-colors"
                 placeholder="Enter username"
               />
             </div>
             <div className="space-y-2">
-              <label className="text-sm text-[#a0a0a0]">Password</label>
+              <label className="text-sm text-muted-foreground">Password</label>
               <Input 
                 type="password"
                 value={credentials.password}
                 onChange={(e) => setCredentials({...credentials, password: e.target.value})}
                 required
-                className="bg-[#1a1a1a] border-[#2a2a2a] focus:border-white transition-colors"
+                className="bg-secondary border-border focus:border-primary transition-colors"
                 placeholder="Enter password"
               />
             </div>
-            <Button type="submit" className="w-full bg-white text-black hover:bg-[#d0d0d0] transition-colors">
+            <Button type="submit" className="w-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors">
               Sign In
             </Button>
           </form>

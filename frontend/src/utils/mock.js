@@ -53,52 +53,42 @@ export const mockData = {
       location: 'Chennai, Tamil Nadu'
     }
   ],
-  education: [
-    {
-      degree: 'Master of Computer Applications',
-      field: 'Computer Science',
-      institution: 'Loyola College, Chennai',
-      year: 'Graduated May 2016'
-    },
-    {
-      degree: 'Bachelor of Science',
-      field: 'Mathematics',
-      institution: 'Loyola College, Chennai',
-      year: 'Graduated May 2013'
-    }
-  ],
   blogs: [
     {
       id: '1',
       title: 'Kubernetes Security Best Practices in 2025',
       excerpt: 'Exploring RBAC, service accounts, and least-privilege access patterns to secure your Kubernetes clusters. Learn how to implement admission controllers and automated security audits.',
-      content: '# Kubernetes Security Best Practices in 2025\n\nKubernetes has become the de facto standard for container orchestration...\n\n## RBAC and Service Accounts\n\nImplementing proper RBAC is crucial...\n\n## Admission Controllers\n\nUsing tools like Gatekeeper...',
+      content: '# Kubernetes Security Best Practices in 2025\n\n![Kubernetes Security](https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800)\n\nKubernetes has become the de facto standard for container orchestration...\n\n## RBAC and Service Accounts\n\nImplementing proper RBAC is crucial...\n\n## Admission Controllers\n\nUsing tools like Gatekeeper...',
       date: 'January 15, 2025',
-      author: 'Guru Prasanth E'
+      author: 'Guru Prasanth E',
+      imageUrl: 'https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800'
     },
     {
       id: '2',
       title: 'Migrating Kafka to EKS with Strimzi Operator',
       excerpt: 'A comprehensive guide to migrating Kafka infrastructure from EC2 to Amazon EKS using the Strimzi Operator, ensuring high availability and minimal downtime.',
-      content: '# Migrating Kafka to EKS with Strimzi Operator\n\nIn this post, I share our experience migrating Kafka infrastructure...\n\n## Planning the Migration\n\nThe first step was thorough planning...',
+      content: '# Migrating Kafka to EKS with Strimzi Operator\n\n![Kafka Migration](https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800)\n\nIn this post, I share our experience migrating Kafka infrastructure...\n\n## Planning the Migration\n\nThe first step was thorough planning...',
       date: 'December 28, 2024',
-      author: 'Guru Prasanth E'
+      author: 'Guru Prasanth E',
+      imageUrl: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800'
     },
     {
       id: '3',
       title: 'Infrastructure as Code: Terraform Best Practices',
       excerpt: 'Lessons learned from managing multi-environment infrastructure with Terraform. Discover patterns for reusable modules, remote state management, and CI/CD integration.',
-      content: '# Infrastructure as Code: Terraform Best Practices\n\nTerraform has revolutionized infrastructure management...\n\n## Reusable Modules\n\nCreating reusable modules is key...',
+      content: '# Infrastructure as Code: Terraform Best Practices\n\n![Terraform](https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800)\n\nTerraform has revolutionized infrastructure management...\n\n## Reusable Modules\n\nCreating reusable modules is key...',
       date: 'November 10, 2024',
-      author: 'Guru Prasanth E'
+      author: 'Guru Prasanth E',
+      imageUrl: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800'
     },
     {
       id: '4',
       title: 'Building Resilient Systems: SRE Principles',
       excerpt: 'Deep dive into Site Reliability Engineering principles and how to apply them in production environments for maximum uptime and reliability.',
-      content: '# Building Resilient Systems: SRE Principles\n\nSite Reliability Engineering is more than just operations...\n\n## Error Budgets\n\nError budgets help balance innovation...',
+      content: '# Building Resilient Systems: SRE Principles\n\n![SRE](https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800)\n\nSite Reliability Engineering is more than just operations...\n\n## Error Budgets\n\nError budgets help balance innovation...',
       date: 'October 5, 2024',
-      author: 'Guru Prasanth E'
+      author: 'Guru Prasanth E',
+      imageUrl: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800'
     }
   ]
 };

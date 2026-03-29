@@ -14,15 +14,16 @@ const BlogPost = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Fetch blog manifest to get metadata
-    fetch('/blogs/manifest.json')
+    // Fetch blog manifest to get metadata - use PUBLIC_URL for GitHub Pages compatibility
+    const basePath = process.env.NODE_ENV === 'development' ? '' : process.env.PUBLIC_URL || '';
+    fetch(`${basePath}/blogs/manifest.json`)
       .then(res => res.json())
       .then(data => {
         const foundBlog = data.find(b => b.id === id);
         if (foundBlog) {
           setBlog(foundBlog);
           // Fetch the markdown file
-          return fetch(`/blogs/${foundBlog.filename}`);
+          return fetch(`${basePath}/blogs/${foundBlog.filename}`);
         }
         throw new Error('Blog not found');
       })

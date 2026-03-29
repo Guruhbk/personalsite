@@ -29,7 +29,7 @@ jobs:
           # ❌ removed cache (since no lock file)
 
       - name: Install dependencies
-        run: npm install   # 👈 instead of npm ci
+        run: npm install --legacy-peer-deps   # 👈 instead of npm ci
 
       - name: Build React app
         run: npm run build

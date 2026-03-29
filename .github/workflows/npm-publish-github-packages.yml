@@ -30,7 +30,9 @@ jobs:
 
       - name: Install dependencies
         run: npm install --legacy-peer-deps   # 👈 instead of npm ci
-
+      - name: Fix AJV issue
+        run: |
+          npm install ajv@6 ajv-keywords@3 --legacy-peer-deps
       - name: Build React app
         run: npm run build
 

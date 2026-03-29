@@ -69,7 +69,7 @@ const Home = () => {
                 variant="outline"
                 size="icon"
                 onClick={toggleTheme}
-                className="border-border hover:bg-secondary hover:border-primary focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background transition-all"
+                className="border-border hover:bg-secondary hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background transition-all"
               >
                 {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
               </Button>
@@ -105,7 +105,7 @@ const Home = () => {
               <div className="flex flex-wrap gap-4 pt-4">
                 <Button 
                   onClick={handleDownloadResume}
-                  className="bg-primary text-primary-foreground hover:bg-primary/90 focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background transition-all"
+                  className="bg-primary text-primary-foreground hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background transition-all"
                 >
                   <Download className="w-4 h-4 mr-2" />
                   Download Resume
@@ -197,7 +197,7 @@ const Home = () => {
             </div>
             <Link to="/blog">
               <Button 
-                className="bg-primary text-primary-foreground hover:bg-primary/90 focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background transition-all"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background transition-all"
               >
                 Explore More
               </Button>

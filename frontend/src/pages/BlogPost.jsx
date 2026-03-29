@@ -69,7 +69,7 @@ const BlogPost = () => {
               <Link to="/blog">
                 <Button 
                   variant="outline" 
-                  className="bg-transparent border-border text-foreground hover:bg-secondary hover:border-primary focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background transition-all"
+                  className="bg-transparent border-border text-foreground hover:bg-secondary hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background transition-all"
                 >
                   <ArrowLeft className="w-4 h-4 mr-2" />
                   Back to Blog
@@ -79,7 +79,7 @@ const BlogPost = () => {
                 variant="outline"
                 size="icon"
                 onClick={toggleTheme}
-                className="bg-transparent border-border text-foreground hover:bg-secondary hover:border-primary focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background transition-all"
+                className="bg-transparent border-border text-foreground hover:bg-secondary hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background transition-all"
               >
                 {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
               </Button>

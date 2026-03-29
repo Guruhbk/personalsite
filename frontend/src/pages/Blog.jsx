@@ -14,8 +14,8 @@ const Blog = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Fetch blog manifest - use PUBLIC_URL for GitHub Pages compatibility
-    const basePath = process.env.NODE_ENV === 'development' ? '' : process.env.PUBLIC_URL || '';
+    // Fetch blog manifest - use PUBLIC_URL only when it's set (production)
+    const basePath = process.env.PUBLIC_URL || '';
     fetch(`${basePath}/blogs/manifest.json`)
       .then(res => res.json())
       .then(data => {

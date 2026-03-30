@@ -69,7 +69,7 @@ const Home = () => {
                 variant="outline"
                 size="icon"
                 onClick={toggleTheme}
-                className="border-border text-foreground hover:bg-secondary hover:text-foreground hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:border-primary transition-all [&:focus-visible]:!text-primary [&:focus-visible_svg]:!text-primary"
+                className="border-border text-foreground hover:bg-secondary hover:text-primary hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:border-primary transition-all [&:focus-visible]:!text-primary [&:focus-visible_svg]:!text-primary [&:hover_svg]:text-primary"
               >
                 {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
               </Button>
@@ -112,27 +112,27 @@ const Home = () => {
                 </Button>
               </div>
               <div className="flex gap-4 pt-2">
-                <a 
-                  href="https://www.linkedin.com/in/guru-prasanth-2003/" 
-                  target="_blank" 
+                <a
+                  href="https://www.linkedin.com/in/guru-prasanth-2003/"
+                  target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 bg-secondary border border-border rounded-lg hover:border-primary hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:border-primary focus-visible:text-primary transition-all [&:focus-visible_svg]:text-primary"
+                  className="p-3 bg-secondary border border-border rounded-lg hover:border-primary hover:bg-primary/10 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:border-primary focus-visible:text-primary transition-all [&:focus-visible_svg]:text-primary [&:hover_svg]:text-primary"
                 >
                   <Linkedin className="w-5 h-5" />
                 </a>
-                <a 
-                  href="https://github.com/Guruhbk" 
-                  target="_blank" 
+                <a
+                  href="https://github.com/Guruhbk"
+                  target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 bg-secondary border border-border rounded-lg hover:border-primary hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:border-primary focus-visible:text-primary transition-all [&:focus-visible_svg]:text-primary"
+                  className="p-3 bg-secondary border border-border rounded-lg hover:border-primary hover:bg-primary/10 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:border-primary focus-visible:text-primary transition-all [&:focus-visible_svg]:text-primary [&:hover_svg]:text-primary"
                 >
                   <Github className="w-5 h-5" />
                 </a>
-                <a 
-                  href="https://www.instagram.com/guru_prasanth20/" 
-                  target="_blank" 
+                <a
+                  href="https://www.instagram.com/guru_prasanth20/"
+                  target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 bg-secondary border border-border rounded-lg hover:border-primary hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:border-primary focus-visible:text-primary transition-all [&:focus-visible_svg]:text-primary"
+                  className="p-3 bg-secondary border border-border rounded-lg hover:border-primary hover:bg-primary/10 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:border-primary focus-visible:text-primary transition-all [&:focus-visible_svg]:text-primary [&:hover_svg]:text-primary"
                 >
                   <Instagram className="w-5 h-5" />
                 </a>
@@ -272,27 +272,27 @@ const Home = () => {
               © {new Date().getFullYear()} Guru Prasanth E. All rights reserved.
             </div>
             <div className="flex gap-4">
-              <a 
-                href="https://www.linkedin.com/in/guru-prasanth-2003/" 
-                target="_blank" 
+              <a
+                href="https://www.linkedin.com/in/guru-prasanth-2003/"
+                target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary focus-visible:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded transition-all [&:focus-visible_svg]:text-primary"
+                className="text-muted-foreground hover:text-primary focus-visible:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded transition-all [&:focus-visible_svg]:text-primary [&:hover_svg]:text-primary"
               >
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a 
-                href="https://github.com/Guruhbk" 
-                target="_blank" 
+              <a
+                href="https://github.com/Guruhbk"
+                target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary focus-visible:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded transition-all [&:focus-visible_svg]:text-primary"
+                className="text-muted-foreground hover:text-primary focus-visible:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded transition-all [&:focus-visible_svg]:text-primary [&:hover_svg]:text-primary"
               >
                 <Github className="w-5 h-5" />
               </a>
-              <a 
-                href="https://www.instagram.com/guru_prasanth20/" 
-                target="_blank" 
+              <a
+                href="https://www.instagram.com/guru_prasanth20/"
+                target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary focus-visible:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded transition-all [&:focus-visible_svg]:text-primary"
+                className="text-muted-foreground hover:text-primary focus-visible:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded transition-all [&:focus-visible_svg]:text-primary [&:hover_svg]:text-primary"
               >
                 <Instagram className="w-5 h-5" />
               </a>

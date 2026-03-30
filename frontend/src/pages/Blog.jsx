@@ -57,9 +57,9 @@ const Blog = () => {
               Guru Prasanth
             </Link>
             <div className="flex items-center gap-4">
-              <Link 
-                to="/" 
-                className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all h-9 px-4 py-2 bg-transparent border border-border text-foreground hover:bg-secondary hover:text-foreground hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:text-primary focus-visible:border-primary [&:focus-visible_svg]:text-primary shadow-sm"
+              <Link
+                to="/"
+                className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all h-9 px-4 py-2 bg-transparent border border-border text-foreground hover:bg-secondary hover:text-primary hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:text-primary focus-visible:border-primary [&:focus-visible_svg]:text-primary [&:hover_svg]:text-primary shadow-sm"
               >
                 <ArrowLeft className="w-4 h-4" />
                 Back to Home
@@ -68,7 +68,7 @@ const Blog = () => {
                 variant="outline"
                 size="icon"
                 onClick={toggleTheme}
-                className="bg-transparent border-border text-foreground hover:bg-secondary hover:text-foreground hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:border-primary transition-all [&:focus-visible]:!text-primary [&:focus-visible_svg]:!text-primary"
+                className="bg-transparent border-border text-foreground hover:bg-secondary hover:text-primary hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:border-primary transition-all [&:focus-visible]:!text-primary [&:focus-visible_svg]:!text-primary [&:hover_svg]:text-primary"
               >
                 {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
               </Button>
@@ -90,7 +90,7 @@ const Blog = () => {
                 className={`px-4 py-2 rounded-lg font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
                   selectedCategory === category
                     ? 'bg-primary text-primary-foreground shadow-md focus-visible:brightness-110'
-                    : 'bg-secondary text-foreground hover:bg-secondary/80 hover:border-primary border border-border focus-visible:text-primary focus-visible:border-primary'
+                    : 'bg-secondary text-foreground hover:bg-secondary/80 hover:text-primary hover:border-primary border border-border focus-visible:text-primary focus-visible:border-primary'
                 }`}
               >
                 {category}

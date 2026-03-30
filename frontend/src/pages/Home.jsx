@@ -26,15 +26,16 @@ const Home = () => {
   }, []);
 
   const handleDownloadResume = () => {
-    // Download the actual PDF resume
+    // Download the local PDF resume
+    const basePath = process.env.PUBLIC_URL || '';
     const link = document.createElement('a');
-    link.href = 'https://customer-assets.emergentagent.com/job_d11f29f7-389a-47d6-bbab-d1e25765930e/artifacts/l5eabg87_Guru_Prasanth_E_Resume-2-1.pdf';
+    link.href = `${basePath}/Guru_Prasanth_E_Resume-2.pdf`;
     link.download = 'Guru_Prasanth_E_Resume.pdf';
     link.target = '_blank';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-    
+
     toast({
       title: "Download started",
       description: "Your resume is being downloaded.",

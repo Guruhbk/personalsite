@@ -10,7 +10,7 @@ function App() {
   return (
     <ThemeProvider>
       <div className="App">
-        <BrowserRouter>
+        <BrowserRouter basename="/personalsite">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/blog" element={<Blog />} />

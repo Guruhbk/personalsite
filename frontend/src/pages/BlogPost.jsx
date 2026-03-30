@@ -16,6 +16,7 @@ const BlogPost = () => {
   useEffect(() => {
     // Fetch blog manifest to get metadata - use PUBLIC_URL only when it's set (production)
     const basePath = process.env.PUBLIC_URL || '';
+    console.log('!!!!!!!!!!!!!! ',basePath)
     fetch(`${basePath}/blogs/manifest.json`)
       .then(res => res.json())
       .then(data => {

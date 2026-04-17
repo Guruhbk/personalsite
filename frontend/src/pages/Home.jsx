@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/button';
 import { Card } from '../components/ui/card';
 import { toast } from '../hooks/use-toast';
-import { Download, Linkedin, Instagram, Github, Calendar, MapPin, Briefcase, Moon, Sun } from 'lucide-react';
+import { Download, Linkedin, Instagram, Github, Calendar, MapPin, Briefcase, Moon, Sun, ChevronDown } from 'lucide-react';
 import { mockData } from '../utils/mock';
 import { useTheme } from '../context/ThemeContext';
 
@@ -11,6 +11,7 @@ const Home = () => {
   const { theme, toggleTheme } = useTheme();
   const [blogs, setBlogs] = useState([]);
   const [activeSection, setActiveSection] = useState('about');
+  const [expandedExperience, setExpandedExperience] = useState(null);
 
   useEffect(() => {
     // Load blogs from manifest - use PUBLIC_URL only when it's set (production)
@@ -181,22 +182,60 @@ const Home = () => {
             {mockData.experience.map((job, idx) => (
               <Card 
                 key={idx} 
-                className="p-6 bg-card border-border hover:border-primary/50 focus-visible:outline-none focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary transition-all group" 
+                className="p-6 bg-card border-border hover:border-primary/50 focus-visible:outline-none focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary transition-all group cursor-pointer" 
                 tabIndex={0}
+                onClick={() => setExpandedExperience(expandedExperience === idx ? null : idx)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    setExpandedExperience(expandedExperience === idx ? null : idx);
+                  }
+                }}
               >
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
-                  <div>
+                  <div className="flex-1">
                     <h3 className="text-2xl font-semibold group-focus-visible:text-primary group-hover:text-primary transition-colors">{job.role}</h3>
                     <p className="text-lg text-muted-foreground">{job.company}</p>
                   </div>
-                  <div className="flex items-center gap-2 text-muted-foreground">
-                    <Calendar className="w-4 h-4" />
-                    <span className="text-sm">{job.duration}</span>
+                  <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-2 text-muted-foreground">
+                      <Calendar className="w-4 h-4" />
+                      <span className="text-sm">{job.duration}</span>
+                    </div>
+                    <div className={`transition-transform duration-300 ${expandedExperience === idx ? 'rotate-180' : 'rotate-0'}`}>
+                      <ChevronDown className={`w-5 h-5 transition-colors ${expandedExperience === idx ? 'text-primary' : 'text-muted-foreground'}`} />
+                    </div>
                   </div>
                 </div>
-                <div className="flex items-center gap-2 text-muted-foreground">
+                <div className="flex items-center gap-2 text-muted-foreground mb-4">
                   <MapPin className="w-4 h-4" />
                   <span className="text-sm">{job.location}</span>
+                </div>
+                
+                <div 
+                  className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                    expandedExperience === idx ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'
+                  }`}
+                >
+                  {job.responsibilities && (
+                    <div className="mt-6 pt-6 border-t border-border">
+                      <h4 className="text-lg font-semibold mb-4 text-primary animate-in fade-in slide-in-from-top-4 duration-500">
+                        Key Responsibilities & Achievements
+                      </h4>
+                      <ul className="space-y-3">
+                        {job.responsibilities.map((responsibility, i) => (
+                          <li 
+                            key={i} 
+                            className="flex gap-3 text-muted-foreground leading-relaxed animate-in fade-in slide-in-from-left-2 duration-500"
+                            style={{ animationDelay: `${i * 50}ms` }}
+                          >
+                            <span className="text-primary mt-1 flex-shrink-0">•</span>
+                            <span>{responsibility}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 </div>
               </Card>
             ))}

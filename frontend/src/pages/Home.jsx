@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/button';
 import { Card } from '../components/ui/card';
 import { toast } from '../hooks/use-toast';
-import { Download, Linkedin, Instagram, Github, Calendar, MapPin, Briefcase, Moon, Sun, ChevronDown, ChevronUp } from 'lucide-react';
+import { Download, Linkedin, Instagram, Github, Calendar, MapPin, Briefcase, Moon, Sun, ChevronDown } from 'lucide-react';
 import { mockData } from '../utils/mock';
 import { useTheme } from '../context/ThemeContext';
 
@@ -201,11 +201,9 @@ const Home = () => {
                       <Calendar className="w-4 h-4" />
                       <span className="text-sm">{job.duration}</span>
                     </div>
-                    {expandedExperience === idx ? (
-                      <ChevronUp className="w-5 h-5 text-primary" />
-                    ) : (
-                      <ChevronDown className="w-5 h-5 text-muted-foreground" />
-                    )}
+                    <div className={`transition-transform duration-300 ${expandedExperience === idx ? 'rotate-180' : 'rotate-0'}`}>
+                      <ChevronDown className={`w-5 h-5 transition-colors ${expandedExperience === idx ? 'text-primary' : 'text-muted-foreground'}`} />
+                    </div>
                   </div>
                 </div>
                 <div className="flex items-center gap-2 text-muted-foreground mb-4">
@@ -213,19 +211,31 @@ const Home = () => {
                   <span className="text-sm">{job.location}</span>
                 </div>
                 
-                {expandedExperience === idx && job.responsibilities && (
-                  <div className="mt-6 pt-6 border-t border-border">
-                    <h4 className="text-lg font-semibold mb-4 text-primary">Key Responsibilities & Achievements</h4>
-                    <ul className="space-y-3">
-                      {job.responsibilities.map((responsibility, i) => (
-                        <li key={i} className="flex gap-3 text-muted-foreground leading-relaxed">
-                          <span className="text-primary mt-1 flex-shrink-0">•</span>
-                          <span>{responsibility}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
+                <div 
+                  className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                    expandedExperience === idx ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'
+                  }`}
+                >
+                  {job.responsibilities && (
+                    <div className="mt-6 pt-6 border-t border-border">
+                      <h4 className="text-lg font-semibold mb-4 text-primary animate-in fade-in slide-in-from-top-4 duration-500">
+                        Key Responsibilities & Achievements
+                      </h4>
+                      <ul className="space-y-3">
+                        {job.responsibilities.map((responsibility, i) => (
+                          <li 
+                            key={i} 
+                            className="flex gap-3 text-muted-foreground leading-relaxed animate-in fade-in slide-in-from-left-2 duration-500"
+                            style={{ animationDelay: `${i * 50}ms` }}
+                          >
+                            <span className="text-primary mt-1 flex-shrink-0">•</span>
+                            <span>{responsibility}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
               </Card>
             ))}
           </div>

@@ -38,53 +38,19 @@ export const mockData = {
       role: 'Lead Engineer - Site Reliability',
       company: 'Freshworks',
       duration: 'April 2025 - Present',
-      location: 'Chennai, Tamil Nadu',
-      responsibilities: [
-        'Managed infrastructure as code using Terraform, ensuring consistency across environments by leveraging reusable modules, remote state management, and automated CI/CD pipelines for infrastructure deployment using GitHub Actions.',
-        'Implemented Kubernetes security best practices including RBAC, service accounts, and least-privilege access to restrict unauthorized actions within clusters.',
-        'Protected sensitive data by managing credentials and configuration with Kubernetes Secrets, integrated with external secret stores (AWS Secrets Manager).',
-        'Improved compliance & visibility through admission controllers (Gatekeeper), image vulnerability scanning, and automated security audits aligned with CIS Kubernetes benchmarks.',
-        'Collaborated as part of the central Kafka team, enabling all Freshworks product teams to reliably use the Kafka platform at scale.',
-        'Led the migration of Kafka infrastructure from EC2 instances to a Strimzi Operator–managed Kafka deployment on Amazon EKS, ensuring high availability and scalability.',
-        'Owned and optimized Kafka MirrorMaker 2 configurations to achieve seamless data replication and smooth migration with minimal downtime.',
-        'Provided 24/7 on-call production support, resolving P0/P1 incidents within SLA and ensuring uninterrupted data streaming for business-critical applications.'
-      ]
+      location: 'Chennai, Tamil Nadu'
     },
     {
       role: 'Senior Consultant - DevOps Lead',
       company: 'EY Global Delivery Service LLP',
       duration: 'September 2020 - April 2025',
-      location: 'Chennai, Tamil Nadu',
-      responsibilities: [
-        'Configured a Jenkins cluster from scratch and implemented a distributed build system using slaves and parallel builds, reducing build times by 50%.',
-        'Successfully optimized AWS infrastructure and resource utilization, reducing overall cloud costs by 30% for a key client through strategic use of services, automation, and monitoring.',
-        'Implemented advanced security measures within containers, making applications highly resilient to unauthorized access and tampering during runtime.',
-        'Introduced Terraform to automate infrastructure setup, significantly reducing manual effort and minimizing human errors.',
-        'Created and managed AWS EKS clusters, including setup of CloudFront CDN for efficient content delivery and configuration of Application Load Balancers (ALBs).',
-        'Developed, maintained, and deployed Kubernetes pods and services, configured AWS Ingress controllers, and managed configuration resources.',
-        'Implemented Dynatrace integration with AWS EKS and Lambda functions to provide end-to-end monitoring and observability.',
-        'Utilized CI/CD services to deploy applications to SAP Business Technology Platform (BTP), integrated with S/4HANA system via Cloud Connector.',
-        'Recognized as Subject Matter Expert (SME) in AWS, SAP BTP, and DevOps practices, serving as primary resource for technical inquiries.',
-        'Led a team of 10 professionals, overseeing development and performance while managing DevOps projects.',
-        'Published several Points of View (POVs) on business benefits of SAP Kyma, Docker usage, and DevOps in SAP BTP.',
-        'Secured cluster networking by implementing Istio service mesh policies to enforce micro-segmentation and zero-trust principles.'
-      ]
+      location: 'Chennai, Tamil Nadu'
     },
     {
       role: 'Senior Software Engineer - Backend Lead',
       company: 'Guidanz Inc',
       duration: 'July 2016 - September 2020',
-      location: 'Chennai, Tamil Nadu',
-      responsibilities: [
-        'Developed and implemented RESTful APIs and Websockets to facilitate efficient communication between front-end and back-end systems.',
-        'Worked closely with cross-functional teams to gather requirements, design solutions, and deliver high-quality software.',
-        'Implemented authentication and authorization mechanisms using JWT, OAuth, and SSO to secure applications.',
-        'Conducted regular security audits to identify and address vulnerabilities, ensuring robust protection of sensitive data.',
-        'Containerized applications using Docker and published to Docker Hub, providing customers with streamlined deployment solutions.',
-        'Deployed and utilized the ELK stack (Elasticsearch, Logstash, and Kibana) for comprehensive logging and monitoring.',
-        'Led team in migrating Node.js application from Node.js 6 to Node.js 12, ensuring compatibility and improving performance.',
-        'Managed a team of 5 developers, guiding project execution and ensuring delivery of high-quality software solutions.'
-      ]
+      location: 'Chennai, Tamil Nadu'
     }
   ],
   blogs: [

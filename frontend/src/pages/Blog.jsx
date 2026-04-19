@@ -54,7 +54,7 @@ const Blog = () => {
         <nav className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <Link to="/" className="text-xl font-bold hover:text-primary focus-visible:text-primary focus-visible:outline-none transition-colors">
-              Guru Prasanth
+              Guru Prasanth E
             </Link>
             <div className="flex items-center gap-4">
               <Link 

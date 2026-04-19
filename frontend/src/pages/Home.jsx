@@ -49,7 +49,7 @@ const Home = () => {
         <nav className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <a href="#home" className="text-xl font-bold hover:text-primary focus-visible:text-primary focus-visible:outline-none transition-colors">
-              Guru Prasanth
+              Guru Prasanth E
             </a>
             <div className="flex items-center gap-6">
               <a 

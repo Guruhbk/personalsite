@@ -118,16 +118,26 @@ const BlogPost = () => {
 
             <div className="border-t border-border pt-8">
               <div className="prose prose-lg dark:prose-invert max-w-none
-                prose-headings:font-bold prose-headings:text-foreground
-                prose-p:text-muted-foreground prose-p:leading-relaxed
-                prose-a:text-primary prose-a:no-underline hover:prose-a:underline
+                prose-headings:font-bold prose-headings:text-foreground prose-headings:mt-8 prose-headings:mb-4
+                prose-h1:text-4xl prose-h1:mt-0
+                prose-h2:text-3xl prose-h2:border-b prose-h2:border-border prose-h2:pb-2
+                prose-h3:text-2xl
+                prose-h4:text-xl
+                prose-p:text-muted-foreground prose-p:leading-relaxed prose-p:my-4
+                prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-a:font-medium
                 prose-strong:text-foreground prose-strong:font-semibold
-                prose-code:text-primary prose-code:bg-secondary prose-code:px-1 prose-code:py-0.5 prose-code:rounded
-                prose-pre:bg-secondary prose-pre:border prose-pre:border-border
-                prose-blockquote:border-l-primary prose-blockquote:text-muted-foreground
-                prose-ul:text-muted-foreground prose-ol:text-muted-foreground
-                prose-li:text-muted-foreground
-                prose-img:rounded-lg prose-img:shadow-lg
+                prose-code:text-primary prose-code:bg-secondary prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:font-mono prose-code:before:content-[''] prose-code:after:content-['']
+                prose-pre:bg-secondary prose-pre:border prose-pre:border-border prose-pre:rounded-lg prose-pre:p-4 prose-pre:overflow-x-auto
+                prose-pre>code:bg-transparent prose-pre>code:p-0 prose-pre>code:text-sm prose-pre>code:text-foreground
+                prose-blockquote:border-l-4 prose-blockquote:border-l-primary prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:text-muted-foreground prose-blockquote:my-6
+                prose-ul:text-muted-foreground prose-ul:my-4 prose-ul:list-disc prose-ul:pl-6
+                prose-ol:text-muted-foreground prose-ol:my-4 prose-ol:list-decimal prose-ol:pl-6
+                prose-li:text-muted-foreground prose-li:my-2 prose-li:leading-relaxed
+                prose-hr:border-border prose-hr:my-8
+                prose-table:text-foreground prose-table:border-collapse
+                prose-th:border prose-th:border-border prose-th:bg-secondary prose-th:p-2
+                prose-td:border prose-td:border-border prose-td:p-2
+                prose-img:rounded-lg prose-img:shadow-lg prose-img:my-6
               ">
                 <ReactMarkdown remarkPlugins={[remarkGfm]}>
                   {markdown}

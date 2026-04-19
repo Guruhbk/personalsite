@@ -1,5 +1,35 @@
 [
-  {
+   {
+    "id": "kubernetes_requests_limits_blog",
+    "filename": "kubernetes_requests_limits_blog.md",
+    "title": "The Complete Guide to Kubernetes Requests and Limits",
+    "date": "April 21, 2026",
+    "author": "Guru Prasanth E",
+    "category": "Kubernetes",
+    "tags": ["Kubernetes", "DevOps"],
+    "excerpt": "Learn why CPU and memory requests and limits are critical in Kubernetes, how they affect scheduling, performance, cluster stability, and how production teams tune them correctly.",
+    "image": "https://www.procore.com/library/wp-content/uploads/2023/06/Request-for-Information-RFI.jpg"
+  }, {
+    "id": "kubernetes_sidecar_injection",
+    "filename": "kubernetes_sidecar_injection.md",
+    "title": "The Complete Guide to Sidecar Injection in Kubernetes",
+    "date": "April 20, 2026",
+    "author": "Guru Prasanth E",
+    "category": "Kubernetes",
+    "tags": ["Kubernetes", "DevOps"],
+    "excerpt": "Learn how sidecar injection works in Kubernetes, how service meshes use it, real-world production use cases, performance tradeoffs, debugging techniques, and best practices.",
+    "image": "https://images.bikeexif.com/2023/12/cherrys-co-royal-4.jpg?v=1753772206"
+  }, {
+    "id": "init_containers_kubernetes_blog",
+    "filename": "init_containers_kubernetes_blog.md",
+    "title": "Kubernetes Init Containers Explained: Real Use Cases, Debugging, and Best Practices",
+    "date": "April 19, 2026",
+    "author": "Guru Prasanth E",
+    "category": "Kubernetes",
+    "tags": ["Kubernetes", "DevOps"],
+    "excerpt": "Learn how Kubernetes Init Containers work, when to use them, production use cases, debugging tips, and best practices for modern DevOps teams.",
+    "image": " https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHWKpfXczN6zHJPhMkxDv6HH2v6cQBqtPPjw&s"
+  }, {
     "id": "kubernetes-security-2025",
     "filename": "kubernetes-security-2025.md",
     "title": "Kubernetes Security Best Practices in 2025",

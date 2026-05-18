@@ -544,45 +544,6 @@ That reduces the attack surface of the main application image.
 
 ---
 
-## Best Practices
-
-### Keep Images Small
-
-Use lightweight images such as BusyBox or Alpine.
-
-### Make Tasks Idempotent
-
-Init Containers may retry. Tasks should be safe to rerun.
-
-### Use Timeouts
-
-Avoid infinite waiting loops.
-
-### Keep Logs Clear
-
-Startup failures should be obvious.
-
-### Separate Responsibilities
-
-Use Init Containers only for startup tasks.
-
----
-
-## Common Anti-Patterns
-
-### Running Long Processes
-
-Init Containers must finish and exit.
-
-### Heavy Migrations During Scale-Out
-
-If many replicas start together, migrations can conflict.
-
-### Complex Business Logic
-nKeep application logic inside the app, not startup containers.
-
----
-
 ## When Not to Use Init Containers
 
 | Need | Better Choice |

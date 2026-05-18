@@ -1,6 +1,6 @@
 ---
 title:  Kubernetes Init Containers Explained: Real Use Cases, Debugging, and Best Practices
-date: April 19, 2026
+date: May 18, 2026
 author: Guru Prasanth E
 category: Kubernetes
 tags: [Kubernetes,  DevOps]
@@ -110,61 +110,369 @@ Applications often fail because the database is not ready yet.
 
 Use an Init Container to wait until PostgreSQL or MySQL accepts connections.
 
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-with-db-check
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app-with-db-check
+  template:
+    metadata:
+      labels:
+        app: app-with-db-check
+    spec:
+      initContainers:
+        - name: wait-for-postgres
+          image: postgres:16
+          command:
+            - sh
+            - -c
+            - |
+              echo "Waiting for PostgreSQL to become ready..."
+
+              until pg_isready -h postgres-service -p 5432 -U appuser
+              do
+                echo "PostgreSQL is unavailable - sleeping"
+                sleep 5
+              done
+
+              echo "PostgreSQL is ready!"
+
+          env:
+            - name: PGPASSWORD
+              value: mypassword
+
+      containers:
+        - name: application
+          image: nginx:latest
+          ports:
+            - containerPort: 80
+```
+
 ## 2. Run Database Migrations
 
-Before a new release starts, run migrations using tools such as:
+A very common production pattern is using an Init Container to run database migrations before the application starts.
 
-- Flyway
-- Liquibase
-- Alembic
+This ensures:
+
+- Schema is updated first
+- Application starts only after migration succeeds
+- Avoids version mismatch between app and DB
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-with-migration
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app-with-migration
+  template:
+    metadata:
+      labels:
+        app: app-with-migration
+    spec:
+      initContainers:
+        - name: run-migrations
+          image: flyway/flyway:10
+          command:
+            - flyway
+            - migrate
+          env:
+            - name: FLYWAY_URL
+              value: jdbc:postgresql://postgres-service:5432/appdb
+
+            - name: FLYWAY_USER
+              value: appuser
+
+            - name: FLYWAY_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-secret
+                  key: password
+
+          volumeMounts:
+            - name: migration-scripts
+              mountPath: /flyway/sql
+
+      containers:
+        - name: application
+          image: myorg/myapp:v1
+          ports:
+            - containerPort: 8080
+
+      volumes:
+        - name: migration-scripts
+          configMap:
+            name: flyway-sql
+```
 
 ## 3. Fetch Secrets Securely
 
-Retrieve secrets from systems like:
+A very common production pattern is using an Init Container to securely fetch secrets from an external secret manager before the application starts.
 
-- HashiCorp Vault
-- AWS Secrets Manager
-- Azure Key Vault
+This avoids:
 
-## 4. Generate Configuration Files
+- Hardcoding secrets in images
+- Storing plaintext credentials in Git
+- Exposing secrets directly in environment variables
 
-Render templates dynamically using environment variables.
+For example, fetching secrets from HashiCorp Vault.
 
-## 5. Download Assets or ML Models
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-with-vault
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app-with-vault
+  template:
+    metadata:
+      labels:
+        app: app-with-vault
+    spec:
+      serviceAccountName: vault-auth
 
-Some applications need startup assets before serving requests.
+      initContainers:
+        - name: fetch-secrets
+          image: hashicorp/vault:1.16
 
+          command:
+            - sh
+            - -c
+            - |
+              echo "Fetching secrets from Vault..."
+
+              vault login $VAULT_TOKEN
+
+              vault kv get -format=json secret/myapp \
+              | jq -r '.data.data' \
+              > /secrets/app-secret.json
+
+              echo "Secrets fetched successfully"
+
+          env:
+            - name: VAULT_ADDR
+              value: http://vault-service:8200
+
+            - name: VAULT_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: vault-token
+                  key: token
+
+          volumeMounts:
+            - name: shared-secrets
+              mountPath: /secrets
+
+      containers:
+        - name: application
+          image: myorg/myapp:v1
+
+          volumeMounts:
+            - name: shared-secrets
+              mountPath: /app/secrets
+              readOnly: true
+
+      volumes:
+        - name: shared-secrets
+          emptyDir:
+            medium: Memory
+```
+
+## 4. Download Assets or ML Models
+
+A very common Init Container pattern in AI, data, and enterprise platforms is downloading required assets before the application starts.
+
+Examples:
+
+- ML models
+- GeoIP databases
+- Certificates
+- Rule files
+- plugins
+- Large static datasets
+- Antivirus signatures
+- TensorFlow/PyTorch weights
+
+The Init Container:
+
+- Downloads assets
+- Stores them in a shared volume
+- Application starts only after assets are available
+
+Examples:
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ml-inference-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ml-inference-app
+  template:
+    metadata:
+      labels:
+        app: ml-inference-app
+    spec:
+      volumes:
+        - name: model-volume
+          emptyDir: {}
+
+      initContainers:
+        - name: download-model
+          image: curlimages/curl:8.8.0
+
+          command:
+            - sh
+            - -c
+            - |
+              echo "Downloading ML model..."
+
+              curl -L \
+                https://models.example.com/resnet50.onnx \
+                -o /models/resnet50.onnx
+
+              echo "Model download complete"
+
+          volumeMounts:
+            - name: model-volume
+              mountPath: /models
+
+      containers:
+        - name: inference-server
+          image: myorg/inference-app:v1
+
+          volumeMounts:
+            - name: model-volume
+              mountPath: /app/models
+              readOnly: true
+
+          ports:
+            - containerPort: 8080
+```
 ---
 
 ## Multiple Init Containers
 
-You can define more than one Init Container.
+Kubernetes supports multiple Init Containers, and they run sequentially in the exact order they are defined.
+
+This is extremely useful in real production systems where startup requires multiple preparation stages.
+
+### Example — Multiple Init Containers
+
+This example shows a realistic startup flow:
+
+- Wait for database
+- Fetch secrets
+- Run DB migrations
+- Start application
 
 ```yaml
-initContainers:
-  - name: prepare-volume
-  - name: wait-db
-  - name: migrate-db
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: production-app
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: production-app
+
+  template:
+    metadata:
+      labels:
+        app: production-app
+
+    spec:
+      volumes:
+        - name: secret-volume
+          emptyDir:
+            medium: Memory
+
+      initContainers:
+
+        # 1. Wait for PostgreSQL
+        - name: wait-for-postgres
+          image: busybox:1.36
+
+          command:
+            - sh
+            - -c
+            - |
+              echo "Waiting for PostgreSQL..."
+
+              until nc -z postgres-service 5432
+              do
+                sleep 5
+              done
+
+              echo "PostgreSQL is ready"
+
+        # 2. Fetch secrets
+        - name: fetch-secrets
+          image: hashicorp/vault:1.16
+
+          command:
+            - sh
+            - -c
+            - |
+              echo "Fetching secrets..."
+
+              vault kv get -field=password secret/myapp/db \
+                > /secrets/db-password
+
+          env:
+            - name: VAULT_ADDR
+              value: http://vault-service:8200
+
+          volumeMounts:
+            - name: secret-volume
+              mountPath: /secrets
+
+        # 3. Run migrations
+        - name: run-migrations
+          image: flyway/flyway:10
+
+          command:
+            - flyway
+            - migrate
+
+          env:
+            - name: FLYWAY_URL
+              value: jdbc:postgresql://postgres-service:5432/appdb
+
+            - name: FLYWAY_USER
+              value: appuser
+
+      containers:
+        - name: application
+          image: myorg/myapp:v1
+
+          volumeMounts:
+            - name: secret-volume
+              mountPath: /app/secrets
+              readOnly: true
+
+          ports:
+            - containerPort: 8080
 ```
 
 They run **sequentially**, not in parallel.
 
 If one fails, the remaining containers never start.
-
----
-
-## Init Containers vs Sidecars
-
-| Feature | Init Container | Sidecar |
-|--------|---------------|---------|
-| Runs before app | Yes | No |
-| Runs continuously | No | Yes |
-| Good for startup checks | Yes | Limited |
-| Good for logging/proxy | No | Yes |
-| Good for migrations | Yes | No |
-
-Use Init Containers for startup logic.
-Use Sidecars for runtime helper processes.
 
 ---
 
@@ -195,13 +503,13 @@ The main application container will **not** start until Init Containers succeed.
 ### Check Pod Events
 
 ```bash
-kubectl describe pod mypod
+kubectl describe pod production-app
 ```
 
 ### View Logs
 
 ```bash
-kubectl logs mypod -c wait-for-db
+kubectl logs mypod -c wait-for-postgres
 ```
 
 ### Watch Pod Status
@@ -293,10 +601,3 @@ Init Containers are one of the cleanest ways to handle startup dependencies in K
 They improve reliability, security, and maintainability while keeping application containers focused on one responsibility.
 
 If you run production workloads on Kubernetes, understanding Init Containers is a valuable skill.
-
----
-
-## Suggested Tags
-
-`kubernetes` `containers` `devops` `platform-engineering` `cloud-native`
-

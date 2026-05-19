@@ -10,20 +10,20 @@
     "excerpt": "Learn why CPU and memory requests and limits are critical in Kubernetes, how they affect scheduling, performance, cluster stability, and how production teams tune them correctly.",
     "image": "https://www.procore.com/library/wp-content/uploads/2023/06/Request-for-Information-RFI.jpg"
   }, {
-    "id": "kubernetes_sidecar_injection",
-    "filename": "kubernetes_sidecar_injection.md",
+    "id": "docker_security_best_practices",
+    "filename": "docker_security_best_practices.md",
     "title": "The Complete Guide to Sidecar Injection in Kubernetes",
-    "date": "April 20, 2026",
+    "date": "May 19, 2026",
     "author": "Guru Prasanth E",
-    "category": "Kubernetes",
-    "tags": ["Kubernetes", "DevOps"],
-    "excerpt": "Learn how sidecar injection works in Kubernetes, how service meshes use it, real-world production use cases, performance tradeoffs, debugging techniques, and best practices.",
-    "image": "https://images.bikeexif.com/2023/12/cherrys-co-royal-4.jpg?v=1753772206"
+    "category": "Docker",
+    "tags": ["Docker", "DevOps"],
+    "excerpt": "Learn essential Docker security best practices including running containers as non-root users, minimizing privileges, protecting the Docker socket, using distroless images, and reducing container attack surface with real-world examples.",
+    "image": "https://containertech.com/wp-content/uploads/2023/10/shipping-container-locks-scaled.jpg"
   }, {
     "id": "init_containers_kubernetes_blog",
     "filename": "init_containers_kubernetes_blog.md",
     "title": "Kubernetes Init Containers Explained: Real Use Cases, Debugging, and Best Practices",
-    "date": "April 19, 2026",
+    "date": "May 18, 2026",
     "author": "Guru Prasanth E",
     "category": "Kubernetes",
     "tags": ["Kubernetes", "DevOps"],

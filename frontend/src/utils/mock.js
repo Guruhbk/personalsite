@@ -45,7 +45,7 @@ export const mockData = {
         'Protected sensitive data by managing credentials and configuration with Kubernetes Secrets, integrated with external secret stores (AWS Secrets Manager).',
         'Improved compliance & visibility through admission controllers (Gatekeeper), image vulnerability scanning, and automated security audits aligned with CIS Kubernetes benchmarks.',
         'Collaborated as part of the central Kafka team, enabling all Freshworks product teams to reliably use the Kafka platform at scale.',
-        'Led the migration of Kafka infrastructure from EC2 instances to a Strimzi Operator–managed Kafka deployment on Amazon EKS, ensuring high availability and scalability.',
+        'Designed and implemented LinkedIn Cruise Control for automated Kafka partition rebalancing and cluster optimization, improving broker resource utilization, throughput balancing, and operational stability in large-scale production environments.',
         'Owned and optimized Kafka MirrorMaker 2 configurations to achieve seamless data replication and smooth migration with minimal downtime.',
         'Provided 24/7 on-call production support, resolving P0/P1 incidents within SLA and ensuring uninterrupted data streaming for business-critical applications.'
       ]

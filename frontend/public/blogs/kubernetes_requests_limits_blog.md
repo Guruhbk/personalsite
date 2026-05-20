@@ -1038,9 +1038,3 @@ Bad resource management creates:
 
 If you want mature Kubernetes operations, requests and limits must be treated as first-class engineering concerns.
 
----
-
-# Suggested Tags
-
-`kubernetes` `devops` `containers` `performance` `sre` `cloud-native` `platform-engineering` `kubernetes-resources`
-

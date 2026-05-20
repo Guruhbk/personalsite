@@ -625,4 +625,14 @@ Security is not one setting. It is a collection of layered controls that reduce 
 
 Containers are not strong security boundaries by default. A vulnerable application running as root can quickly become a serious infrastructure risk.
 
-To build se
+To build secure containers:
+
+- avoid running as root
+- use `.dockerignore`
+- minimize image size
+- prefer slim or distroless images
+- use multi-stage builds
+- avoid mounting `docker.sock`
+- reduce unnecessary utilities inside containers
+
+A secure container should assume compromise is possible and minimize the damage an attacker can do afterward. 

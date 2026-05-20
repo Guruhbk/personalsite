@@ -1,14 +1,12 @@
 ---
-title:  Kubernetes Init Containers Explained: Real Use Cases, Debugging, and Best Practices
-date: May 18, 2026
+title:  Kubernetes Init Containers
+date: April 19, 2026
 author: Guru Prasanth E
 category: Kubernetes
 tags: [Kubernetes,  DevOps]
 excerpt: Learn how Kubernetes Init Containers work, when to use them, production use cases, debugging tips, and best practices for modern DevOps teams.
 image: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHWKpfXczN6zHJPhMkxDv6HH2v6cQBqtPPjw&s
 ---
-
-# Kubernetes Init Containers Explained: Real Use Cases, Debugging, and Best Practices
 
 > Learn how Kubernetes Init Containers work, when to use them, production use cases, debugging tips, and best practices for modern DevOps teams.
 
@@ -60,7 +58,7 @@ That leads to:
 
 - Larger images
 - Harder maintenance
-n- Security risks from extra tools like curl/bash
+- Security risks from extra tools like curl/bash
 - Complex entrypoint scripts
 - Poor separation of concerns
 

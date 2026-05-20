@@ -2,7 +2,7 @@
    {
     "id": "kubernetes_requests_limits_blog",
     "filename": "kubernetes_requests_limits_blog.md",
-    "title": "The Complete Guide to Kubernetes Requests and Limits",
+    "title": "Kubernetes Requests and Limits",
     "date": "May 19, 2026",
     "author": "Guru Prasanth E",
     "category": "Kubernetes",

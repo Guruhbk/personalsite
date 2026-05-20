@@ -8,7 +8,6 @@ excerpt: Learn essential Docker security best practices including running contai
 image: https://containertech.com/wp-content/uploads/2023/10/shipping-container-locks-scaled.jpg
 ---
 
-# Docker Security Best Practices
 > Learn essential Docker security best practices including running containers as non-root users, minimizing privileges, protecting the Docker socket, using distroless images, and reducing container attack surface with real-world examples.
 
 # Introduction

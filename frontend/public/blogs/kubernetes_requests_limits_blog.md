@@ -1,5 +1,5 @@
 ---
-title: The Complete Guide to Kubernetes Requests and Limits
+title: Kubernetes Requests and Limits
 date: May 19, 2026
 author: Guru Prasanth E
 category: Kubernetes
@@ -8,7 +8,6 @@ excerpt: Learn why CPU and memory requests and limits are critical in Kubernetes
 image: https://www.procore.com/library/wp-content/uploads/2023/06/Request-for-Information-RFI.jpg
 ---
 
-# The Complete Guide to Kubernetes Requests and Limits (With Real Production Examples)
 
 > Learn why CPU and memory requests and limits are critical in Kubernetes, how they affect scheduling, performance, cluster stability, and how production teams tune them correctly.
 

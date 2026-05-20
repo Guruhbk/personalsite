@@ -12,7 +12,7 @@
   }, {
     "id": "docker_security_best_practices",
     "filename": "docker_security_best_practices.md",
-    "title": "The Complete Guide to Sidecar Injection in Kubernetes",
+    "title": "Docker Security Best Practices",
     "date": "May 18, 2026",
     "author": "Guru Prasanth E",
     "category": "Docker",
@@ -22,7 +22,7 @@
   }, {
     "id": "init_containers_kubernetes_blog",
     "filename": "init_containers_kubernetes_blog.md",
-    "title": "Kubernetes Init Containers Explained: Real Use Cases, Debugging, and Best Practices",
+    "title": "Kubernetes Init Containers",
     "date": "May 17, 2026",
     "author": "Guru Prasanth E",
     "category": "Kubernetes",

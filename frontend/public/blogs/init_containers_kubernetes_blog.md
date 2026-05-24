@@ -5,7 +5,7 @@ author: Guru Prasanth E
 category: Kubernetes
 tags: [Kubernetes,  DevOps]
 excerpt: Learn how Kubernetes Init Containers work, when to use them, production use cases, debugging tips, and best practices for modern DevOps teams.
-image: https://abccontainers.com.au/wp-content/uploads/2025/05/Small-Containers.png
+image: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzvchSm7zga1QBOW9bqCYn8uaEpdk4T6PK2g&s
 ---
 
 > Learn how Kubernetes Init Containers work, when to use them, production use cases, debugging tips, and best practices for modern DevOps teams.

@@ -1,6 +1,6 @@
 ---
 title:  Docker Security Best Practices 
-date: May 19, 2026
+date: May 18, 2026
 author: Guru Prasanth E
 category: Docker
 tags: [Docker,  DevOps]

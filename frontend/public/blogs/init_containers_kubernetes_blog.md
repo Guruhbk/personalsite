@@ -1,6 +1,6 @@
 ---
 title:  Kubernetes Init Containers
-date: April 19, 2026
+date: May 17, 2026
 author: Guru Prasanth E
 category: Kubernetes
 tags: [Kubernetes,  DevOps]

@@ -1,5 +1,15 @@
 [
    {
+    "id": "reusable_workflows_github_actions",
+    "filename": "reusable-workflows-github-actions.md",
+    "title": "Reusable Workflows in GitHub Actions",
+    "date": "May 24, 2026",
+    "author": "Guru Prasanth E",
+    "category": "CI/CD",
+    "tags": ["CI/CD", "DevOps", "GitHub-Actions"],
+    "excerpt": "Reusable Workflows in GitHub Actions help eliminate duplicate CI/CD pipelines across repositories by centralizing common workflow logic. They improve maintainability, consistency, and scalability by allowing workflows to be reused across projects using workflow_call.",
+    "image": "https://www.soluforce.com/about-us/news/SoluForce-Reaching-the-Next-Level-of-Reusability/_jcr_content/root/media_copy_152807173/item/image.imgTransformer/media_16to10/md-2/1710423921924/2112SF_Reusable-Pipe-Systems_fittings%20(3).jpg"
+  },{
     "id": "kubernetes_requests_limits_blog",
     "filename": "kubernetes_requests_limits_blog.md",
     "title": "Kubernetes Requests and Limits",

@@ -68,7 +68,7 @@ A single monolithic state can:
 
 ## Recommended Approach
 
-Split infrastructure by domain or service ownership.
+### Split infrastructure by domain or service ownership.
 
 Example:
 
@@ -89,7 +89,7 @@ Each domain should ideally:
 
 This significantly reduces operational risk.
 
-## Environment-Based Separation
+### Environment-Based Separation
 
 Production and development environments should also remain isolated.
 
@@ -113,7 +113,7 @@ This prevents:
 - cross-environment state corruption
 - misconfigured variables affecting production
 
-## Real-World Example
+### Real-World Example
 
 Imagine a company with:
 - shared networking
@@ -245,7 +245,7 @@ then:
 
 ## Recommended Practice
 
-Always pin module versions.
+### Always pin module versions.
 
 Example:
 
@@ -258,7 +258,7 @@ Now Terraform always uses:
 
 until teams intentionally upgrade.
 
-## Benefits of Versioning
+### Benefits of Versioning
 
 Versioning enables:
 - reproducible infrastructure

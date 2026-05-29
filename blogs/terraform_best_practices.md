@@ -1,4 +1,3 @@
-
 ---
 title: Terraform Best Practices
 date: May 30, 2026
@@ -7,8 +6,8 @@ category: Terraform
 tags:  ["IaC", "Terraform"]
 excerpt: Learn the most important Terraform best practices used in enterprise environments including service decomposition, module versioning, CI/CD enforcement, Policy as Code, drift detection, and scalable infrastructure design.
 image: https://img.freepik.com/free-vector/smiling-worker-with-apron-standing-by-checklist-clipboard_1308-185694.jpg?semt=ais_hybrid&w=740&q=80
-
 ---
+> Learn the most important Terraform best practices used in enterprise environments including service decomposition, module versioning, CI/CD enforcement, Policy as Code, drift detection, and scalable infrastructure design.
 
 ## Introduction
 

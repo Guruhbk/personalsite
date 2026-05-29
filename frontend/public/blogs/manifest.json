@@ -1,5 +1,15 @@
 [
    {
+    "id": "terraform_best_practices",
+    "filename": "terraform_best_practices.md",
+    "title": "Terraform Best Practices",
+    "date": "May 30, 2026",
+    "author": "Guru Prasanth E",
+    "category": "IaC",
+    "tags": ["IaC", "Terraform"],
+    "excerpt": "Learn the most important Terraform best practices used in enterprise environments including service decomposition, module versioning, CI/CD enforcement, Policy as Code, drift detection, and scalable infrastructure design.",
+    "image": "https://img.freepik.com/free-vector/smiling-worker-with-apron-standing-by-checklist-clipboard_1308-185694.jpg?semt=ais_hybrid&w=740&q=80"
+  },{
     "id": "reusable_workflows_github_actions",
     "filename": "reusable-workflows-github-actions.md",
     "title": "Reusable Workflows in GitHub Actions",

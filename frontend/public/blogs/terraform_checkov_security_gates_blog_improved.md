@@ -108,7 +108,6 @@ checkov --version
 
 The following Terraform intentionally violates multiple security controls and provides a good example of how Checkov detects insecure infrastructure definitions.
 
-<div style="max-height: 500px; overflow-y: auto;">
 
 ```hcl
 provider "aws" {
@@ -143,7 +142,7 @@ resource "aws_security_group" "bad_sg" {
 }
 ```
 
-</div>
+
 
 ---
 
@@ -163,7 +162,6 @@ This command recursively scans all Terraform files within the current directory.
 
 The above Terraform configuration generates multiple security violations.
 
-<div style="max-height: 1000px; overflow-y: auto;">
 
 ```text
 terraform scan results:
@@ -242,7 +240,6 @@ Ensure that S3 buckets are encrypted with KMS by default
 FAILED for resource: aws_s3_bucket.bad_bucket
 ```
 
-</div>
 
 As we can see, Checkov immediately identifies:
 
@@ -266,7 +263,6 @@ Instead, we can selectively enforce only critical and high-risk checks.
 
 Create a `.checkov.yaml` file:
 
-<div style="max-height: 400px; overflow-y: auto;">
 
 ```yaml
 framework:
@@ -286,7 +282,6 @@ check:
   - CKV_AWS_277
 ```
 
-</div>
 
 Now rerun the scan:
 
@@ -342,7 +337,6 @@ required-tags.yaml
 
 Add the following custom policy:
 
-<div style="max-height: 700px; overflow-y: auto;">
 
 ```yaml
 metadata:
@@ -392,7 +386,6 @@ definition:
       operator: "exists"
 ```
 
-</div>
 
 ---
 
@@ -472,7 +465,6 @@ Create the following workflow file:
 
 # GitHub Actions Workflow
 
-<div style="max-height: 500px; overflow-y: auto;">
 
 ```yaml
 name: Checkov Scan
@@ -499,7 +491,6 @@ jobs:
           external_checks_dirs: custom-policies
 ```
 
-</div>
 
 This workflow automatically executes:
 

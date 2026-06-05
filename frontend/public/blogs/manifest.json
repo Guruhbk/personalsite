@@ -1,5 +1,15 @@
 [
    {
+    "id": "terraform_checkov_security_gates_blog_improved",
+    "filename": "terraform_checkov_security_gates_blog_improved.md",
+    "title": "Terraform Security Gates with Checkov",
+    "date": "June 06, 2026",
+    "author": "Guru Prasanth E",
+    "category": "IaC",
+    "tags": ["IaC", "Terraform"],
+    "excerpt": "Shift Terraform security left by integrating Checkov scans, custom compliance policies, and GitHub branch protection to automatically block non-compliant infrastructure changes.",
+    "image": "/images/terraform/terraform_security.jpg"
+  },{
     "id": "terraform_best_practices",
     "filename": "terraform_best_practices.md",
     "title": "Terraform Best Practices",

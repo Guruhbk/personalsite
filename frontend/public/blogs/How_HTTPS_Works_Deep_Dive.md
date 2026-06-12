@@ -76,7 +76,7 @@ This is where HTTPS comes in.
 
 # HTTP vs HTTPS
 
-**Insert Diagram: HTTP vs HTTPS**
+[HTTP vs HTTPS](/images/https/http_vs_https.png)
 
 HTTPS is simply:
 

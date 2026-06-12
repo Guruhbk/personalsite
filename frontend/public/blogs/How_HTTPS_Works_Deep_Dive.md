@@ -76,7 +76,7 @@ This is where HTTPS comes in.
 
 # HTTP vs HTTPS
 
-[HTTP vs HTTPS](/images/https/http_vs_https.png)
+![HTTP vs HTTPS](/images/https/http_vs_https.png)
 
 HTTPS is simply:
 

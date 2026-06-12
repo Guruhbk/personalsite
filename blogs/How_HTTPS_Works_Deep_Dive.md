@@ -4,7 +4,7 @@ date: June 13, 2026
 author: Guru Prasanth E
 category: Security
 tags: [Security]
-excerpt: HTTPS keeps web traffic private and authentic by combining TLS certificates (to verify site identity), ECDHE key exchange (to create a shared secret without sending it), and fast symmetric session keys (AES/ChaCha20) to encrypt data — giving confidentiality, integrity, and Perfect Forward Secrecy. ",.
+excerpt: HTTPS keeps web traffic private and authentic by combining TLS certificates (to verify site identity), ECDHE key exchange (to create a shared secret without sending it), and fast symmetric session keys (AES/ChaCha20) to encrypt data — giving confidentiality, integrity, and Perfect Forward Secrecy.
 image: /images/terraform/terraform_security.jpg
 ---
 

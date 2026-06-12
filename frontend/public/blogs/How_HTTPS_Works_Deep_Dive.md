@@ -8,7 +8,7 @@ excerpt: HTTPS keeps web traffic private and authentic by combining TLS certific
 image: /images/terraform/terraform_security.jpg
 ---
 
-> HTTPS keeps web traffic private and authentic by combining TLS certificates (to verify site identity), ECDHE key exchange (to create a shared secret without sending it), and fast symmetric session keys (AES/ChaCha20) to encrypt data — giving confidentiality, integrity, and Perfect Forward Secrecy. ",.
+> HTTPS keeps web traffic private and authentic by combining TLS certificates (to verify site identity), ECDHE key exchange (to create a shared secret without sending it), and fast symmetric session keys (AES/ChaCha20) to encrypt data — giving confidentiality, integrity, and Perfect Forward Secrecy.
 
 ## Introduction
 
@@ -76,7 +76,7 @@ This is where HTTPS comes in.
 
 # HTTP vs HTTPS
 
-![HTTP vs HTTPS](/images/https/http_vs_https.png)
+![HTTP vs HTTPS](https://containertech.com/wp-content/uploads/2023/10/shipping-container-locks-scaled.jpg)
 
 HTTPS is simply:
 

@@ -178,7 +178,7 @@ The important part is who signs it.
 
 # Certificate Trust Chain
 
-**Insert Diagram: Certificate Trust Chain**
+![Certificate Trust Chain](../images/https/certificate_trust_chain.png)
 
 Browsers trust a set of Root Certificate Authorities (CAs).
 
@@ -211,7 +211,7 @@ But we still need a way to create an encryption key.
 
 # The TLS Handshake
 
-**Insert Diagram: TLS Handshake Overview**
+![TLS Handshake](../images/https/tls_handshake_overview.png)
 
 The TLS handshake is the process of establishing a secure connection.
 
@@ -298,7 +298,7 @@ The goal is simple:
 
 # ECDHE Key Exchange
 
-**Insert Diagram: ECDHE Key Exchange**
+![ECDHE Key Exchange](../images/https/ECDHE_key_exchange.png)
 
 The browser generates:
 
@@ -341,7 +341,7 @@ No secret is ever transmitted over the network.
 
 # Why Can't an Attacker Compute the Shared Secret?
 
-**Insert Diagram: Why Attacker Cannot Compute the Secret**
+![attacker_cannot_compute](../images/https/attacker_cannot_compute.png)
 
 An attacker can see:
 
@@ -428,7 +428,7 @@ This design leads to one of the most important security properties in modern TLS
 
 # Perfect Forward Secrecy
 
-**Insert Diagram: Perfect Forward Secrecy**
+![pfs](../images/https/pfs.png)
 
 Imagine an attacker records encrypted HTTPS traffic today.
 

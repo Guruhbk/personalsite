@@ -76,7 +76,7 @@ This is where HTTPS comes in.
 
 # HTTP vs HTTPS
 
-![HTTP vs HTTPS](https://containertech.com/wp-content/uploads/2023/10/shipping-container-locks-scaled.jpg)
+![HTTP vs HTTPS](../images/https/http_vs_https.png)
 
 HTTPS is simply:
 

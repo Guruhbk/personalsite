@@ -40,14 +40,20 @@ export const mockData = {
       duration: 'April 2025 - Present',
       location: 'Chennai, Tamil Nadu',
       responsibilities: [
-        'Managed infrastructure as code using Terraform, ensuring consistency across environments by leveraging reusable modules, remote state management, and automated CI/CD pipelines for infrastructure deployment using GitHub Actions.',
-        'Implemented Kubernetes security best practices including RBAC, service accounts, and least-privilege access to restrict unauthorized actions within clusters.',
-        'Protected sensitive data by managing credentials and configuration with Kubernetes Secrets, integrated with external secret stores (AWS Secrets Manager).',
-        'Improved compliance & visibility through admission controllers (Gatekeeper), image vulnerability scanning, and automated security audits aligned with CIS Kubernetes benchmarks.',
-        'Collaborated as part of the central Kafka team, enabling all Freshworks product teams to reliably use the Kafka platform at scale.',
-        'Designed and implemented LinkedIn Cruise Control for automated Kafka partition rebalancing and cluster optimization, improving broker resource utilization, throughput balancing, and operational stability in large-scale production environments.',
-        'Owned and optimized Kafka MirrorMaker 2 configurations to achieve seamless data replication and smooth migration with minimal downtime.',
-        'Provided 24/7 on-call production support, resolving P0/P1 incidents within SLA and ensuring uninterrupted data streaming for business-critical applications.'
+        "Lead the reliability, availability, and operational excellence of cloud-native platforms running on Amazon EKS, maintaining 99.9%+ service availability for business-critical production workloads.",
+        "Architect and manage Infrastructure as Code (IaC) using Terraform, developing reusable modules and automated deployment workflows that significantly reduced manual provisioning efforts and improved infrastructure consistency across environments.",
+        "Drive GitOps-based deployment strategies using Argo CD and GitHub Actions, enabling secure, auditable, and automated application releases while reducing deployment risk and operational overhead.",
+        "Design and operate observability platforms using Prometheus, Grafana, and centralized logging solutions, improving visibility into application performance, infrastructure health, and service reliability.",
+        "Implement proactive monitoring and alerting mechanisms that reduce Mean Time to Detect (MTTD) and accelerate incident response for critical production services.",
+        "Own 24x7 production support and on-call operations, leading incident management for P0/P1 outages, resolving issues within SLA commitments, and driving root cause analysis to prevent recurrence.",
+        "Develop automation solutions, operational tooling, and self-service capabilities that improve engineering productivity, reduce manual intervention, and enhance platform reliability.",
+        "Implement Kubernetes security best practices, including RBAC, service accounts, admission controllers, and least-privilege access models, to strengthen cluster security and governance.",
+        "Secure sensitive application data through integration with AWS Secrets Manager and Kubernetes Secrets, ensuring compliance with organizational security and operational standards.",
+        "Improve platform compliance and governance through policy enforcement using Gatekeeper, image vulnerability scanning, and automated security audits aligned with CIS Kubernetes benchmarks.",
+        "Partner with development, platform, networking, and security teams to improve deployment stability, operational readiness, scalability, and overall service resilience.",
+        "Led the migration of distributed messaging infrastructure from EC2-based deployments to a Kubernetes native architecture using Strimzi on Amazon EKS, improving scalability, operational efficiency, and platform resiliency while ensuring zero customer-impacting downtime during migration activities.",
+        "Led Kafka platform modernization and migration initiatives on Amazon EKS, utilizing Cruise Control to automate partition rebalancing, optimize broker utilization, and maintain cluster balance during infrastructure changes while ensuring high availability and minimal service disruption.",
+        "Contributed to capacity planning, performance optimization, and infrastructure scaling strategies, ensuring platform readiness to support growing business and application demands"
       ]
     },
     {

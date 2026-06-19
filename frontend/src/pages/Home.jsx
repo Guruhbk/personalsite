@@ -30,8 +30,8 @@ const Home = () => {
     // Download the local PDF resume
     const basePath = process.env.PUBLIC_URL || '';
     const link = document.createElement('a');
-    link.href = `${basePath}/Guru_Prasanth_E_Resume-2.pdf`;
-    link.download = 'Guru_Prasanth_E_Resume.pdf';
+    link.href = `${basePath}/Guru_Prasanth_E__Lead_SRE.pdf`;
+    link.download = 'Guru_Prasanth_E_Lead_SRE.pdf';
     link.target = '_blank';
     document.body.appendChild(link);
     link.click();

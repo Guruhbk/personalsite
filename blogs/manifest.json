@@ -1,4 +1,14 @@
 [{
+    "id": "aws-security-groups-vs-nacl-blog",
+    "filename": "aws-security-groups-vs-nacl-blog.md",
+    "title": "AWS Security Groups vs Network ACLs - The Difference Every Cloud Engineer Must Understand",
+    "date": "June 20, 2026",
+    "author": "Guru Prasanth E",
+    "category": "AWS",
+    "tags":  ["AWS", "Firewall", "Security"],
+    "excerpt": "Understand AWS Security Groups vs Network ACLs with real-world examples, stateful vs stateless traffic, best practices, and security architecture guidance.",
+    "image": "/images/aws/firewall.png"
+  },{
     "id": "How_HTTPS_Works_Deep_Dive",
     "filename": "How_HTTPS_Works_Deep_Dive.md",
     "title": "How HTTPS Works Deep Dive",

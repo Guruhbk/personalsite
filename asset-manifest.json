@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/static/css/main.bbe2db24.css",
-    "main.js": "/static/js/main.a2cd8f5c.js",
+    "main.js": "/static/js/main.fe484974.js",
     "index.html": "/index.html",
     "main.bbe2db24.css.map": "/static/css/main.bbe2db24.css.map",
-    "main.a2cd8f5c.js.map": "/static/js/main.a2cd8f5c.js.map"
+    "main.fe484974.js.map": "/static/js/main.fe484974.js.map"
   },
   "entrypoints": [
     "static/css/main.bbe2db24.css",
-    "static/js/main.a2cd8f5c.js"
+    "static/js/main.fe484974.js"
   ]
 }

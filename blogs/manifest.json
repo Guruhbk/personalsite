@@ -1,4 +1,14 @@
 [{
+    "id": "helm_hooks",
+    "filename": "helm_hooks.md",
+    "title": "Helm Hooks: Automating Tasks Before and After Deployments",
+    "date": "June 27, 2026",
+    "author": "Guru Prasanth E",
+    "category": "Kubernetes",
+    "tags":  ["Kubernetes"],
+    "excerpt": "Learn how Helm Hooks simplify Kubernetes deployments by automating pre- and post-deployment tasks with real-world examples and production best practices.",
+    "image": "/images/kubernetes/helm_hooks.png"
+  },{
     "id": "aws-security-groups-vs-nacl-blog",
     "filename": "aws-security-groups-vs-nacl-blog.md",
     "title": "AWS Security Groups vs Network ACLs - The Difference Every Cloud Engineer Must Understand",

@@ -1,4 +1,14 @@
 [{
+    "id": "AWS_IAM_Best_Practices_Engineers_Ignore",
+    "filename": "AWS_IAM_Best_Practices_Engineers_Ignore.md",
+    "title": "AWS IAM Best Practices Engineers Ignore (Until Something Breaks)",
+    "date": "July 04, 2026",
+    "author": "Guru Prasanth E",
+    "category": "AWS",
+    "tags":  ["AWS", "Security"],
+    "excerpt": "Most AWS security incidents don't start with hackers—they start with overly permissive IAM policies. Discover 12 AWS IAM best practices that engineers often overlook and learn how to strengthen your cloud security with least privilege, temporary credentials, and smarter access controls.",
+    "image": "/images/aws/iam.png"
+  },{
     "id": "helm_hooks",
     "filename": "helm_hooks.md",
     "title": "Helm Hooks: Automating Tasks Before and After Deployments",

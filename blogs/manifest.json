@@ -1,4 +1,16 @@
-[{
+[
+  {
+    "id": "Connect_GitHub_Actions_to_AWS_Securely",
+    "filename": "Connect_GitHub_Actions_to_AWS_Securely.md",
+    "title": "Connect GitHub Actions to AWS Securely Using OIDC (No Access Keys Required)",
+    "date": "July 11, 2026",
+    "author": "Guru Prasanth E",
+    "category": "CI/CD",
+    "tags":  ["AWS", "CI/CD","GitHub-Actions","Security"],
+    "excerpt": "Learn how GitHub Actions authenticates with AWS using OIDC instead of access keys. This step-by-step guide shows how to configure IAM, create an OIDC provider, and securely deploy a Node.js Lambda application.",
+    "image": "/images/aws/cicd-aws.png"
+  },
+  {
     "id": "AWS_IAM_Best_Practices_Engineers_Ignore",
     "filename": "AWS_IAM_Best_Practices_Engineers_Ignore.md",
     "title": "AWS IAM Best Practices Engineers Ignore (Until Something Breaks)",

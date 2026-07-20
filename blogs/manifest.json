@@ -1,5 +1,16 @@
 [
   {
+    "id": "topology_spread_constraints_statefulset_strimzi_blog",
+    "filename": "topology_spread_constraints_statefulset_strimzi_blog.md",
+    "title": "The Hidden Problem with maxSkew: 1 in Kubernetes",
+    "date": "July 21, 2026",
+    "author": "Guru Prasanth E",
+    "category": "Kubernetes",
+    "tags":  ["Kubernetes"],
+    "excerpt": "A Kubernetes configuration that works perfectly on day one can unexpectedly fail during a pod restart. This article explores why `maxSkew: 1` and topology spread constraints behave differently for StatefulSets like Kafka and Strimzi, how PVC topology creates hidden scheduling conflicts, and the best practices to avoid pods getting stuck in the **Pending** state.",
+    "image": "/images/kubernetes/topology_site.png"
+  },
+  {
     "id": "Connect_GitHub_Actions_to_AWS_Securely",
     "filename": "Connect_GitHub_Actions_to_AWS_Securely.md",
     "title": "Connect GitHub Actions to AWS Securely Using OIDC (No Access Keys Required)",

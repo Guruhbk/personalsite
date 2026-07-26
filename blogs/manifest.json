@@ -2,7 +2,7 @@
   {
     "id": "kubernetes_probes_complete",
     "filename": "kubernetes_probes_complete.md",
-    "title": "The Hidden Problem with maxSkew: 1 in Kubernetes",
+    "title": "Liveness Probe vs Readiness Probe vs Startup Probe in Kubernetes",
     "date": "July 28, 2026",
     "author": "Guru Prasanth E",
     "category": "Kubernetes",
